@@ -6,6 +6,13 @@ DefaultNamesPlayer:
 	next "JACK"
 	db   "@"
 
+DefaultNamesGirl:
+	db   "NEW NAME"
+	next "LEAF"
+	next "GREEN"
+	next "BRI"
+	db   "@"
+
 DefaultNamesRival:
 	db   "NEW NAME"
 	next "BLUE"
@@ -17,9 +24,16 @@ ENDC
 IF DEF(_BLUE)
 DefaultNamesPlayer:
 	db   "NEW NAME"
-	next "BLUE"
+	next "GREEN"
 	next "GARY"
 	next "JOHN"
+	db   "@"
+
+DefaultNamesGirl:
+	db   "NEW NAME"
+	next "LEAF"
+	next "GREEN"
+	next "BRI"
 	db   "@"
 
 DefaultNamesRival:

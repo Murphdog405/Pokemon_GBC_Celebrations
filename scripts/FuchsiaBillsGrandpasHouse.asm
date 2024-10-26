@@ -7,6 +7,8 @@ FuchsiaBillsGrandpasHouse_TextPointers:
 	dw_const FuchsiaBillsGrandpasHouseMiddleAgedWomanText, TEXT_FUCHSIABILLSGRANDPASHOUSE_MIDDLE_AGED_WOMAN
 	dw_const FuchsiaBillsGrandpasHouseBillsGrandpaText,    TEXT_FUCHSIABILLSGRANDPASHOUSE_BILLS_GRANDPA
 	dw_const FuchsiaBillsGrandpasHouseYoungsterText,       TEXT_FUCHSIABILLSGRANDPASHOUSE_YOUNGSTER
+        dw_const MoveRelearnerText1, 			       TEXT_FUCHSIABILLSGRANDPASHOUSE_RELE
+
 
 FuchsiaBillsGrandpasHouseMiddleAgedWomanText:
 	text_far _FuchsiaBillsGrandpasHouseMiddleAgedWomanText
@@ -19,3 +21,4 @@ FuchsiaBillsGrandpasHouseBillsGrandpaText:
 FuchsiaBillsGrandpasHouseYoungsterText:
 	text_far _FuchsiaBillsGrandpasHouseYoungsterText
 	text_end
+

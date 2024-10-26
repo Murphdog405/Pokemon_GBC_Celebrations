@@ -1,5 +1,10 @@
 VermilionDock_Script:
 	call EnableAutoTextBoxDrawing
+	ld a, [wSSAnne2FRoomsCurScript] ; Reusing wSSAnne10CurScript; but it should always finish with it at 0
+	ld hl, VermilionDockScriptPointers
+	jp CallFunctionInTable
+
+VermilionDocksScript0:
 	CheckEventHL EVENT_STARTED_WALKING_OUT_OF_DOCK
 	jr nz, .walking_out_of_dock
 	CheckEventReuseHL EVENT_GOT_HM01
@@ -156,10 +161,10 @@ VermilionDock_EmitSmokePuff:
 
 VermilionDockOAMBlock:
 	; tile id, attribute
-	db $fc, $13
-	db $fd, $13
-	db $fe, $13
-	db $ff, $13
+	db $fc, $10
+	db $fd, $10
+	db $fe, $10
+	db $ff, $10
 
 VermilionDock_SyncScrollWithLY:
 	ld h, d
@@ -181,13 +186,14 @@ VermilionDock_SyncScrollWithLY:
 
 VermilionDock_EraseSSAnne:
 ; Fill the area the S.S. Anne occupies in BG map 0 with water tiles.
-; HAX: call another function to do this (also updates palettes).
-	CALL_INDIRECT EraseSSAnneWithColor
-
-; Padding to prevent data shifting
-rept 17
-	nop
-endr
+	ld hl, wVermilionDockTileMapBuffer
+	ld bc, wVermilionDockTileMapBufferEnd - wVermilionDockTileMapBuffer
+	ld a, $14 ; water tile
+	call FillMemory
+	hlbgcoord 0, 10
+	ld de, wVermilionDockTileMapBuffer
+	lb bc, BANK(wVermilionDockTileMapBuffer), 12
+	call CopyVideoData
 
 ; Replace the blocks of the lower half of the ship with water blocks. This
 ; leaves the upper half alone, but that doesn't matter because replacing any of
@@ -210,7 +216,61 @@ endr
 VermilionDock_TextPointers:
 	def_text_pointers
 	dw_const VermilionDockUnusedText, TEXT_VERMILIONDOCK_UNUSED
+	dw_const VermilionTruck1, 	TEXT_VERMILIONDOCK_MEW
 
 VermilionDockUnusedText:
 	text_far _VermilionDockUnusedText
 	text_end
+	
+	VermilionDockText1:
+	text_far _VermilionDockText1
+	db "@"
+
+VermilionDockText2:
+	text_far _VermilionDockText2
+	db "@"
+
+VermilionDockText3:
+	text_far _VermilionDockText3
+	db "@"
+
+VermilionDockScriptPointers:
+	dw VermilionDocksScript0
+	dw DisplayEnemyTrainerTextAndStartBattle
+	dw EndTrainerBattle
+	dw VermilionDocksScript3
+
+VermilionTruck1:
+	text_asm
+	ld hl, VermilionDockText1
+	call PrintText	
+	CheckEvent EVENT_BEAT_MEW
+	jr nz, .alreadyBattled
+	ld hl, VermilionDockText3
+	call PrintText
+	ld a, MEW
+	ld [wCurOpponent], a
+	call PlayCry ; play Pokémon cry
+	ld a, 40
+	ld [wCurEnemyLVL], a
+	call WaitForSoundToFinish
+	ld a, $3
+	ld [wSSAnne2FRoomsCurScript], a
+	jp TextScriptEnd
+.alreadyBattled
+	ld hl, VermilionDockText2
+	call PrintText
+	call ResetToScript0
+	jp TextScriptEnd
+
+VermilionDocksScript3:
+	ld a, [wIsInBattle]
+	cp $ff ; lost battle
+	jp z, ResetToScript0
+	SetEvent EVENT_BEAT_MEW
+
+ResetToScript0:
+	xor a
+	ld [wSSAnne2FRoomsCurScript], a
+	ret
+

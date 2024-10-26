@@ -1378,6 +1378,11 @@ EnemySendOutFirstMon:
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	jr z, .next4
+	ld a, [wDifficulty] ; check if hard mode
+	and a
+	jr z, .DontForceSetMode
+	jr .next4 ; skip switch
+.DontForceSetMode
 	ld a, [wOptions]
 	bit BIT_BATTLE_SHIFT, a
 	jr nz, .next4
@@ -1890,6 +1895,31 @@ DrawEnemyHUDAndHPBar:
 	lb bc, 4, 12
 	call ClearScreenArea
 	callfar PlaceEnemyHUDTiles
+	;============================== start of code to add the caught symbol
+	ld a, [wIsInBattle] ;dannyE fix
+	dec a ;dannyE fix
+	jr  nz, .notWildBattle ;dannyE fix
+	push hl
+	ld a, [wEnemyMonSpecies2]
+	ld [wd11e], a
+	ld hl, IndexToPokedex
+	ld b, BANK(IndexToPokedex)
+	call Bankswitch
+	ld a, [wd11e]
+	dec a
+	ld c, a
+	ld b, FLAG_TEST
+	ld hl, wPokedexOwned
+	predef FlagActionPredef
+	ld a, c
+	and a
+	jr z, .notOwned
+	coord hl, 1, 1 ; horizontal/vertical
+	ld [hl], $E9 ; replace this with your Poké Ball icon or other character
+	.notOwned
+	pop hl
+	.notWildBattle ;dannyE fix
+	;============================== end of new code
 	ld de, wEnemyMonNick
 	hlcoord 1, 0
 	call CenterMonName
@@ -2176,7 +2206,7 @@ DisplayBattleMenu::
 .throwSafariBallWasSelected
 	ld a, SAFARI_BALL
 	ld [wcf91], a
-	jr UseBagItem
+	jp UseBagItem
 
 .upperLeftMenuItemWasNotSelected ; a menu item other than the upper left item was selected
 	cp $2
@@ -2213,8 +2243,23 @@ BagWasSelected:
 	call DrawHUDsAndHPBars
 .next
 	ld a, [wBattleType]
-	dec a ; is it the old man tutorial?
-	jr nz, DisplayPlayerBag ; no, it is a normal battle
+	cp BATTLE_TYPE_OLD_MAN ; is it the old man battle?
+        jr z, .simulatedInputBattle
+
+        ld a, [wDifficulty] ; Check if player is on hard mode
+	and a
+	jr z, .NormalMode
+
+	ld a, [wIsInBattle] ; Check if this is a wild battle or trainer battle
+	dec a
+	jr z, .NormalMode ; Not a trainer battle
+
+	ld hl, ItemsCantBeUsedHereText ; items can't be used during trainer battles in hard mode
+	call PrintText
+	jp DisplayBattleMenu
+.NormalMode
+	jr DisplayPlayerBag ; no, it is a normal battle
+.simulatedInputBattle
 	ld hl, OldManItemList
 	ld a, l
 	ld [wListPointer], a
@@ -2224,7 +2269,7 @@ BagWasSelected:
 
 OldManItemList:
 	db 1 ; # items
-	db POKE_BALL, 50
+	db POKE_BALL, 5
 	db -1 ; end
 
 DisplayPlayerBag:
@@ -2899,6 +2944,10 @@ PrintMenuItem:
 	hlcoord 1, 9
 	ld de, TypeText
 	call PlaceString
+	hlcoord 1, 11
+	ld [hl], $DB
+	hlcoord 2, 11
+	ld [hl], $DB
 	hlcoord 7, 11
 	ld [hl], "/"
 	hlcoord 5, 9
@@ -3727,11 +3776,6 @@ PrintMonName1Text:
 	ld hl, MonName1Text
 	jp PrintText
 
-; this function wastes time calling DetermineExclamationPointTextNum
-; and choosing between Used1Text and Used2Text, even though
-; those text strings are identical and both continue at PrintInsteadText
-; this likely had to do with Japanese grammar that got translated,
-; but the functionality didn't get removed
 MonName1Text:
 	text_far _MonName1Text
 	text_asm
@@ -3745,25 +3789,11 @@ MonName1Text:
 .playerTurn
 	ld [hl], a
 	ld [wd11e], a
-	call DetermineExclamationPointTextNum
-	ld a, [wMonIsDisobedient]
-	and a
-	ld hl, Used2Text
-	ret nz
-	ld a, [wd11e]
-	cp 3
-	ld hl, Used2Text
-	ret c
-	ld hl, Used1Text
+	ld hl, UsedText
 	ret
 
-Used1Text:
-	text_far _Used1Text
-	text_asm
-	jr PrintInsteadText
-
-Used2Text:
-	text_far _Used2Text
+UsedText:
+	text_far _UsedText
 	text_asm
 	; fall through
 
@@ -3786,76 +3816,13 @@ PrintMoveName:
 _PrintMoveName:
 	text_far _MoveNameText
 	text_asm
-	ld hl, ExclamationPointPointerTable
-	ld a, [wd11e] ; exclamation point num
-	add a
-	push bc
-	ld b, $0
-	ld c, a
-	add hl, bc
-	pop bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
+	ld hl, ExclamationPointText
 	ret
 
-ExclamationPointPointerTable:
-	dw ExclamationPoint1Text
-	dw ExclamationPoint2Text
-	dw ExclamationPoint3Text
-	dw ExclamationPoint4Text
-	dw ExclamationPoint5Text
-
-ExclamationPoint1Text:
-	text_far _ExclamationPoint1Text
+ExclamationPointText:
+	text_far _ExclamationPointText
 	text_end
-
-ExclamationPoint2Text:
-	text_far _ExclamationPoint2Text
-	text_end
-
-ExclamationPoint3Text:
-	text_far _ExclamationPoint3Text
-	text_end
-
-ExclamationPoint4Text:
-	text_far _ExclamationPoint4Text
-	text_end
-
-ExclamationPoint5Text:
-	text_far _ExclamationPoint5Text
-	text_end
-
-; this function does nothing useful
-; if the move being used is in set [1-4] from ExclamationPointMoveSets,
-; use ExclamationPoint[1-4]Text
-; otherwise, use ExclamationPoint5Text
-; but all five text strings are identical
-; this likely had to do with Japanese grammar that got translated,
-; but the functionality didn't get removed
-DetermineExclamationPointTextNum:
-	push bc
-	ld a, [wd11e] ; move ID
-	ld c, a
-	ld b, $0
-	ld hl, ExclamationPointMoveSets
-.loop
-	ld a, [hli]
-	cp $ff
-	jr z, .done
-	cp c
-	jr z, .done
-	and a
-	jr nz, .loop
-	inc b
-	jr .loop
-.done
-	ld a, b
-	ld [wd11e], a ; exclamation point num
-	pop bc
 	ret
-
-INCLUDE "data/moves/grammar.asm"
 
 PrintMoveFailureText:
 	ld de, wPlayerMoveEffect
@@ -3872,7 +3839,7 @@ PrintMoveFailureText:
 	ld a, [wCriticalHitOrOHKO]
 	cp $ff
 	jr nz, .gotTextToPrint
-	ld hl, UnaffectedText
+	ld hl, IsUnaffectedText
 .gotTextToPrint
 	push de
 	call PrintText
@@ -3920,10 +3887,6 @@ AttackMissedText:
 
 KeptGoingAndCrashedText:
 	text_far _KeptGoingAndCrashedText
-	text_end
-
-UnaffectedText:
-	text_far _UnaffectedText
 	text_end
 
 PrintDoesntAffectText:
@@ -3987,10 +3950,48 @@ CheckForDisobedience:
 	ld a, [wPlayerID]
 	cp [hl]
 	jr nz, .monIsTraded
+
+	ld a, [wDifficulty] ; Check if player is on hard mode
+	and a
+	jr z, .NormalMode2
+; what level might disobey?
+	ld a, [wGameStage] ; Check if player has beat the game
+	and a
+	ld a, 101
+	jr nz, .next
+	farcall GetBadgesObtained
+	ld a, [wNumSetBits]
+	cp 8
+	ld a, 65 ; Blastoise/Charizard/Venusaur's level
+	jr nc, .next
+	cp 7
+	ld a, 50 ; Rhydon's level
+	jr nc, .next
+	cp 6
+	ld a, 48 ; Arcanine's level
+	jr nc, .next
+	cp 5
+	ld a, 46 ; Alakazam's level
+	jr nc, .next
+    cp 4
+	ld a, 44 ; Weezing's level
+	jr nc, .next
+	cp 3
+	ld a, 37 ; Vileplume's level
+	jr nc, .next
+	cp 2
+        ld a, 28 ; Raichu's level
+	jr nc, .next
+	cp 1
+	ld a, 22 ; Starmie's level
+	jr nc, .next
+	ld a, 15 ; Onix's level
+	jp .next
+.NormalMode2
 	inc hl
 	ld a, [wPlayerID + 1]
 	cp [hl]
-	jp z, .canUseMove
+	jp z, .canUseMove ; on normal mode non traded pokemon will always obey	
 ; it was traded
 .monIsTraded
 ; what level might disobey?
@@ -6343,14 +6344,22 @@ SwapPlayerAndEnemyLevels:
 LoadPlayerBackPic:
 	ld a, [wBattleType]
 	dec a ; is it the old man tutorial?
-	ld de, RedPicBack
-	jr nz, .next
 	ld de, OldManPicBack
-.next
 	ld a, BANK(RedPicBack)
-	ASSERT BANK(RedPicBack) == BANK(OldManPicBack)
+	jr z, .next
+	ld a, [wPlayerGender]
+    	and a
+    	jr z, .RedBack
+    	ld de, GreenPicBack
+        ld a, BANK(GreenPicBack) ; Load female back sprite
+       jr .next
+.RedBack
+    	ld de, RedPicBack ; Load default Red back sprite
+        ld a, BANK(RedPicBack)
+.next
+        ASSERT BANK(GreenPicBack) == BANK(OldManPicBack) ; These two ASSERTs make sure to cover
+        ASSERT BANK(RedPicBack) == BANK(OldManPicBack)   ; both sprites cases)
 	call UncompressSpriteFromDE
-
 IF GEN_2_GRAPHICS
 	call LoadMonBackSpriteHook ; No pixelated backsprites
 	nop

@@ -39,7 +39,7 @@ DisplayDiploma::
 	hlcoord 10, 4
 	ld de, wPlayerName
 	call PlaceString
-	farcall DrawPlayerCharacter
+	callfar DrawPlayerCharacter
 
 ; Move the player 33 pixels right and set the priority bit so he appears
 ; behind the background layer.
@@ -72,17 +72,17 @@ DisplayDiploma::
 	call Delay3
 	jp GBPalNormal
 
-UnusedPlayerNameLengthFunc:
+;UnusedPlayerNameLengthFunc:
 ; Unused function that does a calculation involving the length of the player's
 ; name.
-	ld hl, wPlayerName
-	lb bc, $ff, $00
-.loop
-	ld a, [hli]
-	cp "@"
-	ret z
-	dec c
-	jr .loop
+;	ld hl, wPlayerName
+;	lb bc, $ff, $00
+;.loop
+;	ld a, [hli]
+;	cp "@"
+;	ret z
+;	dec c
+;	jr .loop
 
 MACRO diploma_text
 	dw \3

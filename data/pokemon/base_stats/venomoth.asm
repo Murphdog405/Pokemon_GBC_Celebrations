@@ -14,7 +14,7 @@ ELSE
 ENDC
 	dw VenomothPicFront, VenomothPicBack
 
-	db TACKLE, DISABLE, POISONPOWDER, LEECH_LIFE ; level 1 learnset
+	db SLUDGE, DISABLE, POISONPOWDER, LEECH_LIFE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset

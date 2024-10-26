@@ -142,7 +142,7 @@ pokeblue_vc_pad    = 0x00
 pokeblue_debug_pad = 0xff
 
 pokered_opt        = -Cjv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON RED"
-pokeblue_opt       = -Cjv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
+pokeblue_opt       = -Cjv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON GREEN"
 pokeblue_debug_opt = -Cjv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"
 pokered_vc_opt     = -Cjv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON RED"
 pokeblue_vc_opt    = -Cjv -n 0 -k 01 -l 0x33 -m 0x13 -r 03 -t "POKEMON BLUE"

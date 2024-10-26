@@ -62,6 +62,43 @@
 	const SPRITE_BRUNO                   ; $3a
 	const SPRITE_LORELEI                 ; $3b
 	const SPRITE_SEEL                    ; $3c
+	const SPRITE_BROCK
+	const SPRITE_MISTY
+	const SPRITE_SURGE
+	const SPRITE_ERIKA
+	const SPRITE_SABRINA
+	const SPRITE_BLAINE
+	const SPRITE_ARTICUNO				 
+	const SPRITE_CHANSEY				 
+	const SPRITE_CLEFAIRY				
+	const SPRITE_CUBONE			
+	const SPRITE_KANGASKHAN				 
+	const SPRITE_LAPRAS					 
+	const SPRITE_MEOWTH					 
+	const SPRITE_MEWTWO					 
+	const SPRITE_MOLTRES				 
+	const SPRITE_NIDORINO				 
+	const SPRITE_OMANYTE
+	const SPRITE_PIDGEOT				 
+	const SPRITE_POLYWRATH				 
+	const SPRITE_PSYDUCK				 
+	const SPRITE_SLOWBRO				 
+	const SPRITE_SLOWPOKE				 
+	const SPRITE_SPEAROW				 
+	const SPRITE_VOLTORB				 
+	const SPRITE_WIGGLYTUFF				 
+	const SPRITE_DODUO				
+	const SPRITE_FEAROW					 
+	const SPRITE_JIGGLYPUFF				 
+	const SPRITE_KABUTO
+	const SPRITE_MACHOKE				 
+	const SPRITE_MACHOP					
+	const SPRITE_NIDORANF				 
+	const SPRITE_NIDORANM				 
+	const SPRITE_PIDGEY					 
+	const SPRITE_PIKACHU				 
+	const SPRITE_SEEL2					
+	const SPRITE_ZAPDOS					
 DEF FIRST_STILL_SPRITE EQU const_value
 	const SPRITE_POKE_BALL               ; $3d
 	const SPRITE_FOSSIL                  ; $3e
