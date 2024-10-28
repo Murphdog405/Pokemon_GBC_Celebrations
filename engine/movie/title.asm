@@ -124,6 +124,9 @@ IF DEF(_RED)
 	ld a, STARTER1 ; which Pokemon to show first on the title screen
 ENDC
 IF DEF(_BLUE)
+	ld a, STARTER2 ; which Pokemon to show first on the title screen
+ENDC
+IF DEF(_GREEN)
 	ld a, STARTER3 ; which Pokemon to show first on the title screen
 ENDC
 	ld [wTitleMonSpecies], a
@@ -142,6 +145,7 @@ ENDC
 	call GBPalNormal
 	ld a, %11100100
 	ldh [rOBP0], a
+
 
 ; make pokemon logo bounce up and down
 	ld bc, hSCY ; background scroll Y
@@ -393,7 +397,7 @@ CopyrightTextString:
 
 INCLUDE "data/pokemon/title_mons.asm"
 
-; prints version text (red, blue)
+; prints version text (red, blue, green)
 PrintGameVersionOnTitleScreen:
 	hlcoord 7, 8
 	ld de, VersionOnTitleScreenText
@@ -406,6 +410,9 @@ IF DEF(_RED)
 ENDC
 IF DEF(_BLUE)
 	db $61,$62,$63,$64,$65,$66,$67,$68,"@" ; "Blue Version"
+ENDC
+IF DEF(_GREEN)
+	db $61,$62,$63,$64,$65,$66,$67,$68,"@" ; "Green Version"
 ENDC
 
 DebugNewGamePlayerName:

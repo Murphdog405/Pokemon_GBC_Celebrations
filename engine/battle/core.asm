@@ -2954,9 +2954,9 @@ PrintMenuItem:
 	ld de, TypeText
 	call PlaceString
 	hlcoord 1, 11
-	ld [hl], $DB
+	ld [hl], $D9
 	hlcoord 2, 11
-	ld [hl], $DB
+	ld [hl], $D9
 	hlcoord 7, 11
 	ld [hl], "/"
 	hlcoord 5, 9
