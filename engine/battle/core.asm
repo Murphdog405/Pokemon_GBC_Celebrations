@@ -1842,8 +1842,14 @@ DrawPlayerHUDAndHPBar:
 	ld [hl], $73
 	ld de, wBattleMonNick
 	hlcoord 10, 7
+IF GEN_2_GRAPHICS
 	call PlaceString
 	call PrintEXPBarAt1711
+ELSE
+	call CenterMonName
+	call PlaceString
+	call PrintEXPBarAt1711
+ENDC
 	ld hl, wBattleMonSpecies
 	ld de, wLoadedMon
 	ld bc, wBattleMonDVs - wBattleMonSpecies
