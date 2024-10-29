@@ -12,8 +12,8 @@ It builds the following ROMs:
 
 Some FEATURES:
 - PLAY IN FULL COLOR
-- Play with Gen 1 or Gen 2 Sprites
-- Play with Gen 1 or Gen 2 Audio
+- Play with Gen 1 or Gen 2 Sprites.... Change in Includes.asm from 0 to 1
+- Play with Gen 1 or Gen 2 Audio... Change in Includes.asm from 0 to 1
 - Now you can Play Gen1 as a girl!
  - All 151 Pokémons can be caught or evolved without trading
  - Mew Under the Truck event restored
