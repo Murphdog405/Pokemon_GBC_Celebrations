@@ -190,6 +190,7 @@ GainExperience:
 IF GEN_2_GRAPHICS
 	call AnimateEXPBar
 ELSE
+	call AnimateEXPBar
 	call LoadMonData
 ENDC
 	pop hl
@@ -205,6 +206,7 @@ IF GEN_2_GRAPHICS
 	call KeepEXPBarFull
 ELSE
 	ld a, [wCurEnemyLVL]
+	call KeepEXPBarFull
 ENDC
 	push af
 	push hl
@@ -293,6 +295,7 @@ IF GEN_2_GRAPHICS
 	call AnimateEXPBarAgain
 ELSE
 	call LoadMonData
+	call AnimateEXPBarAgain
 ENDC
 	ld d, $1
 	callfar PrintStatsBox

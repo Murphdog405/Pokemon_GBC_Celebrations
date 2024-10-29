@@ -502,7 +502,7 @@ NEXTU
 wBoostExpByExpAll::
 wUnusedCC5B:: db
 
-	ds 59
+ds 59
 
 wNPCMovementDirections2:: ds 10
 ; used in Pallet Town scripted movement
@@ -1844,7 +1844,7 @@ wPokedexSeenEnd::
 
 wNumBagItems:: db
 ; item, quantity
-wBagItems:: ds BAG_ITEM_CAPACITY * 2 + 1
+wBagItems:: ds BAG_ITEM_CAPACITY * 2 + 1  
 
 wPlayerMoney:: ds 3 ; BCD
 
@@ -2006,7 +2006,7 @@ wTilesetTalkingOverTiles:: ds 3
 
 wGrassTile:: db
 
-	ds 4
+	ds 4 
 
 wNumBoxItems:: db
 ; item, quantity

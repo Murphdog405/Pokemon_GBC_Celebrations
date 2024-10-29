@@ -50,3 +50,4 @@ WorldMapTileGraphicsEnd:
 
 PlayerCharacterTitleGraphics: INCBIN "gfx/title/player.2bpp"
 PlayerCharacterTitleGraphicsEnd:
+

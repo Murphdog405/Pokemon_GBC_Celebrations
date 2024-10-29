@@ -1842,13 +1842,8 @@ DrawPlayerHUDAndHPBar:
 	ld [hl], $73
 	ld de, wBattleMonNick
 	hlcoord 10, 7
-IF GEN_2_GRAPHICS
-	call PlaceString ; Note: "CenterMonName" not called to be consistent with gen 2
-	call PrintEXPBarAt1711
-ELSE
-	call CenterMonName
 	call PlaceString
-ENDC
+	call PrintEXPBarAt1711
 	ld hl, wBattleMonSpecies
 	ld de, wLoadedMon
 	ld bc, wBattleMonDVs - wBattleMonSpecies
@@ -7115,8 +7110,6 @@ INCLUDE "engine/battle/effects.asm"
 ; HAX: Following are hooks for pokered_color. This is the end of the bank so it won't
 ; cause data shifting.
 
-IF GEN_2_GRAPHICS
-
 LoadMonBackSpriteHook:
 	ld a, $66
 	ld de, vBackPic
@@ -7320,4 +7313,4 @@ BattleMonPartyAttr:
 	ld a, [wPlayerMonNumber]
 	ld bc, wPartyMon2 - wPartyMon1
 	jp AddNTimes
-ENDC
+
