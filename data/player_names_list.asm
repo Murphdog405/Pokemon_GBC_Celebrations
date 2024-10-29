@@ -3,14 +3,14 @@ DefaultNamesPlayerList:
 	db "NEW NAME@"
 	db "RED@"
 	db "ASH@"
-	db "JACK@"
-
-DefaultNamesGirlList:
-	db "NEW NAME@"
-	db "LEAF@"
-	db "GREEN@"
-	db "BRI@"
+	db "JIM@"
 	
+DefaultNamesGirlList:
+    	db "NEW NAME@"
+   	 db "GREEN@"
+   	db "LEAF@"
+    	db "BRI@"
+
 DefaultNamesRivalList:
 	db "NEW NAME@"
 	db "BLUE@"
@@ -21,16 +21,16 @@ ENDC
 IF DEF(_BLUE)
 DefaultNamesPlayerList:
 	db "NEW NAME@"
-	db "GREEN@"
+	db "BLUE@"
 	db "GARY@"
-	db "JOHN@"
-
-DefaultNamesGirlList:
-	db "NEW NAME@"
-	db "LEAF@"
-	db "GREEN@"
-	db "BRI@"
+	db "JIM@"
 	
+DefaultNamesGirlList:
+    	db "NEW NAME@"
+   	db "GREEN@"
+   	db "LEAF@"
+    	db "BRI@"
+
 DefaultNamesRivalList:
 	db "NEW NAME@"
 	db "RED@"
@@ -41,19 +41,19 @@ ENDC
 IF DEF(_GREEN)
 DefaultNamesPlayerList:
 	db "NEW NAME@"
-	db "RED@"
-	db "ASH@"
-	db "JACK@"
-
-DefaultNamesGirlList:
-	db "NEW NAME@"
-	db "LEAF@"
 	db "GREEN@"
-	db "BRI@"
+	db "GARY@"
+	db "JIM@"
 	
+DefaultNamesGirlList:
+    	db "NEW NAME@"
+   	db "GREEN@"
+   	db "LEAF@"
+    	db "BRI@"
+
 DefaultNamesRivalList:
 	db "NEW NAME@"
-	db "BLUE@"
-	db "GARY@"
-	db "JOHN@"
+	db "RED@"
+	db "ASH@"
+	db "JOHNK@"
 ENDC

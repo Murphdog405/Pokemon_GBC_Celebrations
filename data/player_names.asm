@@ -3,15 +3,15 @@ DefaultNamesPlayer:
 	db   "NEW NAME"
 	next "RED"
 	next "ASH"
-	next "JACK"
+	next "JIM"
 	db   "@"
-
+	
 DefaultNamesGirl:
-	db   "NEW NAME"
-	next "LEAF"
-	next "GREEN"
-	next "BRI"
-	db   "@"
+  	db   "NEW NAME"
+   	next "GREEN"
+    	next "LEAF"
+    	next "BRI"
+   	db   "@"
 
 DefaultNamesRival:
 	db   "NEW NAME"
@@ -24,17 +24,17 @@ ENDC
 IF DEF(_BLUE)
 DefaultNamesPlayer:
 	db   "NEW NAME"
-	next "GREEN"
+	next "BLUE"
 	next "GARY"
-	next "JOHN"
+	next "JIM"
 	db   "@"
-
+	
 DefaultNamesGirl:
-	db   "NEW NAME"
-	next "LEAF"
-	next "GREEN"
-	next "BRI"
-	db   "@"
+  	db   "NEW NAME"
+   	next "GREEN"
+    	next "LEAF"
+    	next "BRI"
+   	db   "@"
 
 DefaultNamesRival:
 	db   "NEW NAME"
@@ -43,26 +43,25 @@ DefaultNamesRival:
 	next "JACK"
 	db   "@"
 ENDC
-
 IF DEF(_GREEN)
 DefaultNamesPlayer:
 	db   "NEW NAME"
-	next "RED"
-	next "ASH"
-	next "JACK"
-	db   "@"
-
-DefaultNamesGirl:
-	db   "NEW NAME"
-	next "LEAF"
 	next "GREEN"
-	next "BRI"
+	next "GARY"
+	next "JIM"
 	db   "@"
+	
+DefaultNamesGirl:
+  	db   "NEW NAME"
+   	next "GREEN"
+    	next "LEAF"
+    	next "BRI"
+   	db   "@"
 
 DefaultNamesRival:
 	db   "NEW NAME"
-	next "BLUE"
-	next "GARY"
+	next "RED"
+	next "ASH"
 	next "JOHN"
 	db   "@"
 ENDC
