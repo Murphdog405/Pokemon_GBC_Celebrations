@@ -407,11 +407,7 @@ LoadCopyrightTiles:
 	ld hl, vChars2 tile $60
 	lb bc, BANK(NintendoCopyrightLogoGraphics), (GameFreakLogoGraphicsEnd - NintendoCopyrightLogoGraphics) / $10
 	call CopyVideoData
-IF DEF(_GREEN)
 	hlcoord 2, 7
-ELSE
-	hlcoord 2, 7
-ENDC
 	ld de, CopyrightTextString
 	jp PlaceString
 
