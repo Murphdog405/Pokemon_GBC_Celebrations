@@ -191,7 +191,6 @@ IF GEN_2_GRAPHICS
 	call AnimateEXPBar
 ELSE
 	call AnimateEXPBar
-	call LoadMonData
 ENDC
 	pop hl
 	ld bc, wPartyMon1Level - wPartyMon1Exp
@@ -205,7 +204,6 @@ ENDC
 IF GEN_2_GRAPHICS
 	call KeepEXPBarFull
 ELSE
-	ld a, [wCurEnemyLVL]
 	call KeepEXPBarFull
 ENDC
 	push af
@@ -294,7 +292,6 @@ ENDC
 IF GEN_2_GRAPHICS
 	call AnimateEXPBarAgain
 ELSE
-	call LoadMonData
 	call AnimateEXPBarAgain
 ENDC
 	ld d, $1
