@@ -114,8 +114,8 @@ IF GEN_2_GRAPHICS
 	coord hl, 19, 3
 	lb bc, 2, 8
 ELSE
-	coord hl, 19, 1
-	lb bc, 6, 10
+	coord hl, 19, 3
+	lb bc, 2, 8
 ENDC
 	call DrawLineBox ; Draws the box around name, HP and status
 	hlcoord 2, 7
@@ -394,8 +394,9 @@ IF GEN_2_GRAPHICS
 	nop
 	nop
 ELSE
-	hlcoord 19, 3
-	ld [hl], $78
+	call StatusScreen2Hook
+	nop
+	nop
 ENDC
 	hlcoord 0, 8
 	ld b, 8

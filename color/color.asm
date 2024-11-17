@@ -134,13 +134,9 @@ SetPal_Battle_Common:
 	ld e, 3
 	farcall LoadSGBPalette
 
-IF GEN_2_GRAPHICS
+
 	; Player exp bar
 	ld d, PAL_EXP
-ELSE
-	; Black palette
-	ld d, PAL_BLACK
-ENDC
 	ld e, 4
 	farcall LoadSGBPalette
 
@@ -154,7 +150,7 @@ ENDC
 	ld c, 11
 	call FillBox
 
-IF GEN_2_GRAPHICS
+
 	; Bottom half; player lifebar
 	ld hl, W2_TilesetPaletteMap + 7 * 20 + 9
 	ld a, 2
@@ -168,16 +164,14 @@ IF GEN_2_GRAPHICS
 	ld b, 1
 	ld c, 11
 	call FillBox
-ENDC
 
-IF !GEN_2_GRAPHICS
 	; Bottom half; player lifebar
 	ld hl, W2_TilesetPaletteMap + 7 * 20 + 9
 	ld a, 2
 	ld b, 5
 	ld c, 11
 	call FillBox
-ENDC
+
 
 	; Player pokemon
 	ld hl, W2_TilesetPaletteMap + 4 * 20
@@ -288,11 +282,11 @@ SetPal_StatusScreen:
 	ld e, 1
 	farcall LoadSGBPalette
 
-IF GEN_2_GRAPHICS
+
 	ld d, PAL_EXP
 	ld e, 4
 	farcall LoadSGBPalette
-ENDC
+
 
 	; Load pokemon palette
 	pop af
@@ -334,7 +328,7 @@ ENDC
 	dec b
 	jr nz, .drawRow
 
-IF GEN_2_GRAPHICS
+
 	; Player exp bar
 	ld hl, W2_TilesetPaletteMap + 11 + 5 * SCREEN_WIDTH
 	ld b, 8
@@ -343,7 +337,6 @@ IF GEN_2_GRAPHICS
 	ld [hli], a
 	dec b
 	jr nz, .expLoop
-ENDC
 
 	xor a
 	ldh [rSVBK], a

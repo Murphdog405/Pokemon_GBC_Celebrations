@@ -3,7 +3,6 @@
 StatusScreenHook:
 	; b = SET_PAL_STATUS_SCREEN
 	call RunPaletteCommand
-IF GEN_2_GRAPHICS
 	decoord 18, 5
 	ld a, [wBattleMonLevel]
 	push af
@@ -12,7 +11,6 @@ IF GEN_2_GRAPHICS
 	farcall PrintEXPBar
 	pop af
 	ld [wBattleMonLevel], a
-ENDC
 	ret
 
 ; Only called when GEN_2_GRAPHICS is set
