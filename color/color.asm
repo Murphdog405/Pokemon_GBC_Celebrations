@@ -150,7 +150,7 @@ SetPal_Battle_Common:
 	ld c, 11
 	call FillBox
 
-
+IF GEN_2_GRAPHICS
 	; Bottom half; player lifebar
 	ld hl, W2_TilesetPaletteMap + 7 * 20 + 9
 	ld a, 2
@@ -164,13 +164,23 @@ SetPal_Battle_Common:
 	ld b, 1
 	ld c, 11
 	call FillBox
+ENDC
 
+IF !GEN_2_GRAPHICS  ;;; Gen 1 Graphics
 	; Bottom half; player lifebar
 	ld hl, W2_TilesetPaletteMap + 7 * 20 + 9
 	ld a, 2
 	ld b, 5
 	ld c, 11
 	call FillBox
+
+	; Player exp bar ;;; Gen 1 Graphics
+	ld hl, W2_TilesetPaletteMap + 9 + 11 * 20
+	ld a, 4
+	ld b, 1
+	ld c, 11
+	call FillBox
+ENDC
 
 
 	; Player pokemon
