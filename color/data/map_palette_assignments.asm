@@ -33,7 +33,11 @@ MapPaletteAssignments:
 	assert_table_length NUM_TILESETS
 
 OverworldPalMap:
+IF SNOW
+	INCLUDE "color/tilesets/overworld_snow.asm"
+ELSE
 	INCLUDE "color/tilesets/overworld.asm"
+ENDC
 
 RedsHouse1PalMap:
 RedsHouse2PalMap:
@@ -44,7 +48,11 @@ PokecenterPalMap:
 	INCLUDE "color/tilesets/pokecenter.asm"
 
 ForestPalMap:
+IF SNOW
+	INCLUDE "color/tilesets/forest_snow.asm"
+ELSE
 	INCLUDE "color/tilesets/forest.asm"
+ENDC
 
 DojoPalMap:
 GymPalMap:
@@ -92,4 +100,8 @@ FacilityPalMap:
 	INCLUDE "color/tilesets/facility.asm"
 
 PlateauPalMap:
+IF SNOW
+	INCLUDE "color/tilesets/plateau_snow.asm"
+ELSE
 	INCLUDE "color/tilesets/plateau.asm"
+ENDC

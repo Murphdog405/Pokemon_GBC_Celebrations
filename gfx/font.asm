@@ -41,6 +41,9 @@ GameFreakLogoGraphicsEnd:
 IF GEN_2_GRAPHICS
 TextBoxGraphics:: INCBIN "gfx/gs/text_box.2bpp"
 TextBoxGraphicsEnd::
+ELIF SNOW
+TextBoxGraphics:: INCBIN "gfx/gs/text_box_snow.2bpp"
+TextBoxGraphicsEnd::
 ELSE
 TextBoxGraphics:: INCBIN "gfx/font/font_extra.2bpp"
 TextBoxGraphicsEnd::

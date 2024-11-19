@@ -1,6 +1,8 @@
 DEF GEN_2_GRAPHICS EQU 0
 DEF GEN_2_MUSIC    EQU 0
 
+DEF SNOW           EQU 1
+
 INCLUDE "macros/asserts.asm"
 INCLUDE "macros/const.asm"
 INCLUDE "macros/predef.asm"
