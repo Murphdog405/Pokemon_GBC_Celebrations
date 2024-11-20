@@ -1,9 +1,9 @@
 SECTION "Tilesets 1", ROMX
 
-IF DEF(_GREEN)
-Overworld_GFX::     INCBIN "gfx/tilesets/tilesets_rg/overworld.2bpp"
-ELIF SNOW
+IF SNOW
 Overworld_GFX::     INCBIN "gfx/tilesets/overworld_snow.2bpp"
+ELIF DEF(_GREEN)
+Overworld_GFX::     INCBIN "gfx/tilesets/tilesets_rg/overworld.2bpp"
 ELSE	
 Overworld_GFX::     INCBIN "gfx/tilesets/overworld.2bpp"
 ENDC
@@ -61,10 +61,10 @@ ForestGate_Block::
 Museum_Block::
 Gate_Block::        INCBIN "gfx/blocksets/gate.bst"
 
-IF DEF(_GREEN)
-Forest_GFX::        INCBIN "gfx/tilesets/tilesets_rg/forest.2bpp"
-ELIF SNOW
+IF SNOW
 Forest_GFX::        INCBIN "gfx/tilesets/forest_snow.2bpp"
+ELIF DEF(_GREEN)
+Forest_GFX::        INCBIN "gfx/tilesets/tilesets_rg/forest.2bpp"
 ELSE
 Forest_GFX::        INCBIN "gfx/tilesets/forest.2bpp"
 ENDC
@@ -81,10 +81,13 @@ Facility_Block::    INCBIN "gfx/blocksets/facility.bst"
 
 SECTION "Tilesets 3", ROMX
 
+RedsHouse1_GFX::
+RedsHouse2_GFX::    INCBIN "gfx/tilesets/reds_house.2bpp"
+RedsHouse1_Block::
+RedsHouse2_Block::  INCBIN "gfx/blocksets/reds_house.bst"
+
 Cemetery_GFX::      INCBIN "gfx/tilesets/cemetery.2bpp"
 Cemetery_Block::    INCBIN "gfx/blocksets/cemetery.bst"
-Cavern_GFX::        INCBIN "gfx/tilesets/cavern.2bpp"
-Cavern_Block::      INCBIN "gfx/blocksets/cavern.bst"
 Lobby_GFX::         INCBIN "gfx/tilesets/lobby.2bpp"
 Lobby_Block::       INCBIN "gfx/blocksets/lobby.bst"
 Ship_GFX::          INCBIN "gfx/tilesets/ship.2bpp"
@@ -96,17 +99,36 @@ Club_Block::        INCBIN "gfx/blocksets/club.bst"
 Underground_GFX::   INCBIN "gfx/tilesets/underground.2bpp"
 Underground_Block:: INCBIN "gfx/blocksets/underground.bst"
 
-
 SECTION "Tilesets 4", ROMX
-
-RedsHouse1_GFX::
-RedsHouse2_GFX::    INCBIN "gfx/tilesets/reds_house.2bpp"
-RedsHouse1_Block::
-RedsHouse2_Block::  INCBIN "gfx/blocksets/reds_house.bst"
 
 Mart_GFX::
 Pokecenter_GFX::    INCBIN "gfx/tilesets/pokecenter.2bpp"
 Mart_Block::
 Pokecenter_Block::  INCBIN "gfx/blocksets/pokecenter.bst"
+
+IF SNOW
+Safari_GFX::        INCBIN "gfx/tilesets/safari_snow.2bpp"
+ELSE
+Safari_GFX::        INCBIN "gfx/tilesets/safari.2bpp"
+ENDC
+
+IF SNOW
+Safari_Block::      INCBIN "gfx/blocksets/safari_snow.bst"
+ELSE
+Safari_Block::      INCBIN "gfx/blocksets/safari.bst"
+ENDC
+
+IF SNOW
+Cavern_GFX::        INCBIN "gfx/tilesets/ice_cavern.2bpp"
+ELSE
+Cavern_GFX::        INCBIN "gfx/tilesets/cavern.2bpp"
+ENDC
+Cavern_Block::      INCBIN "gfx/blocksets/cavern.bst"
+
+
+
+
+
+
 
 

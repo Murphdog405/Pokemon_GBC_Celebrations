@@ -30,6 +30,7 @@ MapPaletteAssignments:
 	dw ClubPalMap        ; CLUB
 	dw FacilityPalMap    ; FACILITY
 	dw PlateauPalMap     ; PLATEAU
+	dw SafariPalMap      ; SAFARI
 	assert_table_length NUM_TILESETS
 
 OverworldPalMap:
@@ -82,7 +83,11 @@ InteriorPalMap:
 	INCLUDE "color/tilesets/interior.asm"
 
 CavernPalMap:
+IF SNOW
+	INCLUDE "color/tilesets/ice_cavern.asm"
+ELSE
 	INCLUDE "color/tilesets/cavern.asm"
+ENDC
 
 LobbyPalMap:
 	INCLUDE "color/tilesets/lobby.asm"
@@ -104,4 +109,11 @@ IF SNOW
 	INCLUDE "color/tilesets/plateau_snow.asm"
 ELSE
 	INCLUDE "color/tilesets/plateau.asm"
+ENDC
+
+SafariPalMap:
+IF SNOW
+	INCLUDE "color/tilesets/safari_snow.asm"
+ELSE
+	INCLUDE "color/tilesets/safari.asm"
 ENDC

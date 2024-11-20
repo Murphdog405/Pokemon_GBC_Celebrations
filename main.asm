@@ -63,7 +63,7 @@ INCLUDE "engine/overworld/field_move_messages.asm"
 INCLUDE "engine/items/inventory.asm"
 INCLUDE "engine/overworld/wild_mons.asm"
 INCLUDE "engine/items/item_effects.asm"
-INCLUDE "engine/menus/draw_badges.asm"
+;INCLUDE "engine/menus/draw_badges.asm" ;; Moved for space
 INCLUDE "engine/overworld/update_map.asm"
 INCLUDE "engine/overworld/cut.asm"
 INCLUDE "engine/overworld/missable_objects.asm"
@@ -237,6 +237,8 @@ INCLUDE "gfx/trade.asm"
 
 ; Hooks for color hack
 INCLUDE "color/trade.asm"
+
+INCLUDE "engine/menus/draw_badges.asm"
 
 
 SECTION "Pokédex Rating", ROMX
