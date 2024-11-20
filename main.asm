@@ -82,7 +82,6 @@ INCLUDE "engine/events/hidden_objects/book_or_sculpture.asm"
 INCLUDE "engine/events/hidden_objects/elevator.asm"
 INCLUDE "engine/events/hidden_objects/town_map.asm"
 INCLUDE "engine/events/hidden_objects/pokemon_stuff.asm"
-INCLUDE "engine/items/tms.asm"
 INCLUDE "text/tmhm_names.asm"
 tmhmNamesEnd:
 
@@ -102,22 +101,19 @@ INCLUDE "engine/menus/party_menu.asm"
 INCLUDE "gfx/player.asm"
 INCLUDE "engine/overworld/turn_sprite.asm"
 INCLUDE "engine/menus/start_sub_menus.asm"
-;INCLUDE "engine/items/tms.asm" ;; moved for space
+INCLUDE "engine/items/tms.asm"
 INCLUDE "engine/battle/end_of_battle.asm"
 INCLUDE "engine/battle/wild_encounters.asm"
 INCLUDE "engine/battle/move_effects/recoil.asm"
 INCLUDE "engine/battle/move_effects/conversion.asm"
 INCLUDE "engine/battle/move_effects/haze.asm"
-INCLUDE "engine/math/random.asm" ;; moved for space?
-INCLUDE "engine/battle/get_trainer_name.asm" ;;; moved for space?
-
+INCLUDE "engine/math/random.asm"
+INCLUDE "engine/battle/get_trainer_name.asm"
 
 INCLUDE "color/status_screen.asm"
 
-
 EXPBarGraphics:  INCBIN "gfx/gs/exp_bar.2bpp"
 EXPBarGraphicsEnd:
-
 
 
 SECTION "Battle Engine 2", ROMX
@@ -407,7 +403,7 @@ SECTION "Engine Spillover", ROMX
 
 INCLUDE "engine/overworld/use_another_repel.asm"
 INCLUDE "engine/menus/item_descriptions.asm"
-INCLUDE "engine/overworld/elevator.asm"
+INCLUDE "engine/overworld/elevator.asm" ;; moved from 1E
 INCLUDE "engine/pokemon/evos_moves.asm" ;; moved from Battle Engine 7
 
 
