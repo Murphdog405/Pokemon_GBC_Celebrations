@@ -14,6 +14,7 @@ Some FEATURES:
 - PLAY IN FULL COLOR
 - Play with Gen 1 or Gen 2 Sprites.... Change in Includes.asm from 0 to 1
 - Play with Gen 1 or Gen 2 Audio... Change in Includes.asm from 0 to 1
+- Play on regular overworld map or Snowy map... Change in Includes.asm from 0 to 1
 - GREEN: Features restored, SGB Border, Flowers, Overworld and more!
 - Now you can Play Gen1 as a girl!
  - All 151 Pokémons can be caught or evolved without trading
