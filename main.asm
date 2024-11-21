@@ -8,7 +8,7 @@ INCLUDE "engine/movie/title.asm"
 INCLUDE "engine/pokemon/load_mon_data.asm"
 INCLUDE "data/items/prices.asm"
 INCLUDE "data/items/names.asm"
-;INCLUDE "data/text/unused_names.asm"
+;INCLUDE "data/text/unused_names.asm" ;; Removed from game
 INCLUDE "engine/gfx/sprite_oam.asm"
 INCLUDE "engine/gfx/oam_dma.asm"
 INCLUDE "engine/link/print_waiting_text.asm"
@@ -393,8 +393,8 @@ INCLUDE "data/moves/animations.asm"
 INCLUDE "data/battle_anims/subanimations.asm"
 INCLUDE "data/battle_anims/frame_blocks.asm"
 INCLUDE "engine/movie/evolution.asm"
-INCLUDE "engine/items/tm_prices.asm" ; can move for space
-;INCLUDE "engine/overworld/elevator.asm" ; moved for space
+INCLUDE "engine/items/tm_prices.asm"
+INCLUDE "engine/overworld/elevator.asm"
 
 
 INCLUDE "color/animations.asm"
@@ -403,7 +403,6 @@ SECTION "Engine Spillover", ROMX
 
 INCLUDE "engine/overworld/use_another_repel.asm"
 INCLUDE "engine/menus/item_descriptions.asm"
-INCLUDE "engine/overworld/elevator.asm" ;; moved from 1E
 INCLUDE "engine/pokemon/evos_moves.asm" ;; moved from Battle Engine 7
 
 
