@@ -1109,7 +1109,7 @@ wNPCMovementScriptSpriteOffset:: db
 
 wScriptedNPCWalkCounter:: db
 
-	ds 1
+	ds 2
 
 wGBC:: db
 
@@ -1947,6 +1947,8 @@ wChannel6:: channel_struct wChannel6
 wUniQuizAnswer:: db
 
 wUnusedC000:: db
+
+wSum:: db
 
 ENDU
 ;;;;;;;;;;
