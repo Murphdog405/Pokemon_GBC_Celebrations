@@ -1109,7 +1109,7 @@ wNPCMovementScriptSpriteOffset:: db
 
 wScriptedNPCWalkCounter:: db
 
-	ds 2
+	ds 1
 
 wGBC:: db
 
