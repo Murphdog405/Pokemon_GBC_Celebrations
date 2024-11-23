@@ -1948,7 +1948,7 @@ wUniQuizAnswer:: db
 
 wUnusedC000:: db
 
-wSum:: db
+wSum:: dw
 
 ENDU
 ;;;;;;;;;;
