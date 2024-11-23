@@ -19,12 +19,13 @@ Some FEATURES:
 - Now you can Play Gen1 as a girl!
  - All 151 Pokémons can be caught or evolved without trading
  - Mew Under the Truck event restored
- - NPC Tradeback Guy in CELADON MART 1F (evolve trade evolutions)
+ - NPC Tradeback Guy in CELADON MART 1F (evolve trade evolutions/ or evolve them level up)
  - Now you can take both fossils in MT. MOON!
  - Teams have mixed Pokémon (no more 5 pidgey teams)
  - Aerodactyl / Omanyte / Kabuto level when revived now is 44, GIFT Lapras in Saffron now is level 34 / Eevee from Celadon Roof is 30.
  - Gust is now a Flying Type instead of NORMAL
  - IN-GAME MOVES LEARNSET POKEDEX
+- Base Stats displayed in POKEDEX
  - Added Pokémon like Magmar / Electabuzz / Staryu and others to earlier routes (consult documentation) - Infinite TM's (they are reusable like newer gens)
  - Gym Leaders, Rival, Rockets and other trainers had a buff in level, moves and parties (some parties to match Anime/Lets go Pikachu/References)
  - Move Relearner added in Fuchsia - Move Deleter added in Vermilion (undeletable HMs)
