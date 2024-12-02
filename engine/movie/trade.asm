@@ -174,7 +174,7 @@ LoadTradingGFXAndMonNames:
 	ld a, $ff
 	ld [wUpdateSpritesEnabled], a
 	ld hl, wd730
-	set 6, [hl] ; turn on instant text printing
+	set 6, [hl]
 	ld a, [wOnSGB]
 	and a
 	ld a, $e4 ; non-SGB OBP0
@@ -219,7 +219,7 @@ Trade_Cleanup:
 	xor a
 	call LoadGBPal
 	ld hl, wd730
-	res 6, [hl] ; turn off instant text printing
+	res 6, [hl]
 	ret
 
 Trade_ShowPlayerMon:
@@ -383,6 +383,7 @@ Trade_ShowEnemyMon:
 
 Trade_AnimLeftToRight:
 ; Animates the mon moving from the left GB to the right one.
+	call Trade_InitGameboyTransferGfx_ColorHook
 	ld a, $1
 	ld [wTradedMonMovingRight], a
 	ld a, %11100100
@@ -392,8 +393,7 @@ Trade_AnimLeftToRight:
 	ld a, $1c
 	ld [wBaseCoordY], a
 	ld a, [wLeftGBMonSpecies]
-	ld [wcf91], a
-	call Trade_InitGameboyTransferGfx
+	ld [wMonPartySpriteSpecies], a
 	call Trade_WriteCircledMonOAM
 	call Trade_DrawLeftGameboy
 	call Trade_CopyTileMapToVRAM
@@ -417,6 +417,7 @@ Trade_AnimLeftToRight:
 
 Trade_AnimRightToLeft:
 ; Animates the mon moving from the right GB to the left one.
+	call Trade_InitGameboyTransferGfx_ColorHook
 	xor a
 	ld [wTradedMonMovingRight], a
 	ld a, $64
@@ -424,8 +425,7 @@ Trade_AnimRightToLeft:
 	ld a, $44
 	ld [wBaseCoordY], a
 	ld a, [wRightGBMonSpecies]
-	ld [wcf91], a
-	call Trade_InitGameboyTransferGfx
+	ld [wMonPartySpriteSpecies], a
 	call Trade_WriteCircledMonOAM
 	call Trade_DrawRightGameboy
 	call Trade_CopyTileMapToVRAM
@@ -606,36 +606,31 @@ Trade_AnimCircledMon:
 	xor $3c ; make link cable flash
 	ldh [rBGP], a
 	ld hl, wShadowOAMSprite00TileID
-	ld a, [hl]
-	bit 2, a
-	jr z, .firstframe
-	sub 8
-.firstframe
-	add 4
-	ld bc, 4
-rept 3
-	ld [hl], a
-	add hl, bc
-	inc a
-endr
-	ld [hl], a
-	add hl, bc
 	ld de, $4
+
+	ld c, $4
+.mon_loop
+	ld a, [hl]
+	xor 2
+	ld [hl], a
+	add hl, de
+	dec c
+	jr nz, .mon_loop
 	ld c, $10
-.loop
+.circle_loop
 	ld a, [hl]
 	xor ICONOFFSET
 	ld [hl], a
 	add hl, de
 	dec c
-	jr nz, .loop
+	jr nz, .circle_loop
 	pop hl
 	pop bc
 	pop de
 	ret
 
 Trade_WriteCircledMonOAM:
-	farcall WriteMonPartySpriteOAMBySpecies
+	farcall LoadSinglePartyMonSprite
 	call Trade_WriteCircleOAM
 
 Trade_AddOffsetsToOAMCoords:
