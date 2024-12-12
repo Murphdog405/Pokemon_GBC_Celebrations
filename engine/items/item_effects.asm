@@ -2923,6 +2923,7 @@ FindWildLocationsOfMon:
 	inc c
 	jr .loop
 .done
+	call AddStaticEncounters
 	ld a, $ff ; list terminator
 	ld [de], a
 	ret
@@ -2946,3 +2947,19 @@ CheckMapForMon:
 	jr nz, .loop
 	dec hl
 	ret
+
+AddStaticEncounters: ; manually add
+	ld a, [wd11e]
+	cp VOLTORB
+	jr z, .addPowerPlant
+	cp ELECTRODE
+	jr z, .addPowerPlant
+	ret
+.addEncounter
+	ld a, b
+	ld [de], a
+	inc de
+	ret
+.addPowerPlant
+	ld b, POWER_PLANT
+	jr z, .addEncounter
