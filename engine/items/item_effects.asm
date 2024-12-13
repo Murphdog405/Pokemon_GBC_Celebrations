@@ -1834,9 +1834,30 @@ CoinCaseNumCoinsText:
 ItemUseOldRod:
 	call FishingInit
 	jp c, ItemUseNotTime
-	lb bc, 5, MAGIKARP
-	ld a, $1 ; set bite
+	.RandomLoop
+	call Random
+	srl a
+	jr c, .SetBite
+	and %11
+	cp 2
+	jr nc, .RandomLoop
+	; choose which monster appears
+	ld hl, OldRodMons
+	add a
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld b, [hl]
+	inc hl
+	ld c, [hl]
+	and a
+.SetBite
+	ld a, 0
+	rla
+	xor 1
 	jr RodResponse
+
+INCLUDE "data/wild/old_rod.asm"
 
 ItemUseGoodRod:
 	call FishingInit
@@ -2849,7 +2870,7 @@ ReadSuperRodData:
 ; return e = 0 if no bite
 	ld a, [wCurMap]
 	ld de, 3 ; each fishing group is three bytes wide
-	ld hl, SuperRodData
+	ld hl, SuperRodFishingSlots
 	call IsInArray
 	jr c, .ReadFishingGroup
 	ld e, $2 ; $2 if no fishing groups found
@@ -2923,6 +2944,7 @@ FindWildLocationsOfMon:
 	inc c
 	jr .loop
 .done
+	farcall CheckMapForFishingMon ; fishing
 	call AddStaticEncounters
 	ld a, $ff ; list terminator
 	ld [de], a
