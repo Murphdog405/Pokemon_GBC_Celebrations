@@ -386,7 +386,7 @@ SpritePaletteAssignments: ; Characters on the overworld
 	; 0x1a: SPRITE_WAITER
 	db SPR_PAL_RANDOM
 
-	; 0x1b: SPRITE_ERIKA
+	; 0x1b: SPRITE_SILP_FEMALE ;OLD ERIKA SPRITE
 	db SPR_PAL_RANDOM
 
 	; 0x1c: SPRITE_MOM_GEISHA
@@ -449,8 +449,8 @@ SpritePaletteAssignments: ; Characters on the overworld
 	; 0x2f: SPRITE_FISHER2
 	db SPR_PAL_RANDOM
 
-	; 0x30: SPRITE_BLACKBELT
-	db SPR_PAL_RANDOM
+	; 0x30: SPRITE_KOGA
+	db SPR_PAL_BLUE
 
 	; 0x31: SPRITE_GUARD ($30)
 	db SPR_PAL_BLUE
@@ -601,7 +601,7 @@ SpritePaletteAssignments: ; Characters on the overworld
 	; SPRITE_SEEL2
 	db SPR_PAL_BLUE
 
-	; SPRITE ZAPDOS
+	; SPRITE_ZAPDOS
 	db SPR_PAL_ORANGE
 
 
