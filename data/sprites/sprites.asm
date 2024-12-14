@@ -73,6 +73,7 @@ SpriteSheetPointerTable:
 	overworld_sprite ErikaSprite, 12
 	overworld_sprite SabrinaSprite, 12
 	overworld_sprite BlaineSprite, 12
+	overworld_sprite BillSprite,   12
 	overworld_sprite ArticunoSprite, 12
 	overworld_sprite ChanseySprite, 12	    ; SPRITE_CHANSEY
 	overworld_sprite ClefairySprite, 12

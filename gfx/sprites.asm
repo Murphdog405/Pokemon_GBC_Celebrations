@@ -16,7 +16,7 @@ SilphWorkerMSprite::     INCBIN "gfx/sprites/silph_worker_m.2bpp"
 WardenSprite::           INCBIN "gfx/sprites/warden.2bpp"
 CaptainSprite::          INCBIN "gfx/sprites/captain.2bpp"
 FisherSprite::           INCBIN "gfx/sprites/fisher.2bpp"
-;KogaSprite::             INCBIN "gfx/sprites/koga.2bpp" ;;; moved to Sprites 3 for space
+;KogaSprite::            INCBIN "gfx/sprites/koga.2bpp" ;;; moved to Sprites 3 for space
 GuardSprite::            INCBIN "gfx/sprites/guard.2bpp"
 PokeBallSprite::         INCBIN "gfx/sprites/poke_ball.2bpp"
 FossilSprite::           INCBIN "gfx/sprites/fossil.2bpp"
@@ -30,8 +30,6 @@ GamblerAsleepSprite::    INCBIN "gfx/sprites/gambler_asleep.2bpp"
 LittleBoySprite::        INCBIN "gfx/sprites/little_boy.2bpp"
 BaldingGuySprite::       INCBIN "gfx/sprites/balding_guy.2bpp"
 WaiterSprite::           INCBIN "gfx/sprites/waiter.2bpp"
-
- 
 
 
 SECTION "NPC Sprites 2", ROMX
@@ -79,14 +77,17 @@ BrunoSprite::            INCBIN "gfx/sprites/bruno.2bpp"
 LoreleiSprite::          INCBIN "gfx/sprites/lorelei.2bpp"
 SeelSprite::             INCBIN "gfx/sprites/seel.2bpp"
 
+
 SECTION "NPC Sprites 3", ROMX
+
 BrockSprite::           INCBIN "gfx/sprites/brock.2bpp"
 MistySprite::           INCBIN "gfx/sprites/misty.2bpp"
 SurgeSprite::           INCBIN "gfx/sprites/surge.2bpp"
 ErikaSprite::           INCBIN "gfx/sprites/erika.2bpp"
-KogaSprite::             INCBIN "gfx/sprites/koga.2bpp"
+KogaSprite::            INCBIN "gfx/sprites/koga.2bpp"
 SabrinaSprite::         INCBIN "gfx/sprites/sabrina.2bpp"
 BlaineSprite::          INCBIN "gfx/sprites/blaine.2bpp"
+BillSprite::            INCBIN "gfx/sprites/bill.2bpp"
 ArticunoSprite::         INCBIN "gfx/sprites/mons/articuno.2bpp"
 ChanseySprite::          INCBIN "gfx/sprites/mons/chansey.2bpp"
 ClefairySprite::         INCBIN "gfx/sprites/mons/clefairy.2bpp"

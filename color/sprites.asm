@@ -510,7 +510,13 @@ SpritePaletteAssignments: ; Characters on the overworld
        ; SPRITE_BLAINE
 	db SPR_PAL_BROWN
 
+; Random
+
+	; SPRITE_BILL
+	db SPR_PAL_ORANGE
+
 ; Map Pokemons
+
 	; SPRITE ARTICUNO
 	db SPR_PAL_BLUE
 

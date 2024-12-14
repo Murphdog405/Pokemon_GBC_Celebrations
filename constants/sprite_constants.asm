@@ -68,6 +68,7 @@
 	const SPRITE_ERIKA
 	const SPRITE_SABRINA
 	const SPRITE_BLAINE
+	const SPRITE_BILL
 	const SPRITE_ARTICUNO				 
 	const SPRITE_CHANSEY				 
 	const SPRITE_CLEFAIRY				
