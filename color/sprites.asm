@@ -571,6 +571,9 @@ SpritePaletteAssignments: ; Characters on the overworld
 	; SPRITE_VOLTORB
 	db SPR_PAL_ORANGE
 
+	; SPRITE_ELECTRODE
+	db SPR_PAL_ORANGE
+
 	; SPRITE_WIGGLYTUFF
 	db SPR_PAL_PURPLE
 

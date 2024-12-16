@@ -92,6 +92,7 @@ SpriteSheetPointerTable:
 	overworld_sprite SlowpokeSprite, 12
 	overworld_sprite SpearowSprite, 12
 	overworld_sprite VoltorbSprite, 12
+	overworld_sprite ElectrodeSprite, 12
 	overworld_sprite WigglytuffSprite, 12
 	overworld_sprite DoduoSprite, 12
 	overworld_sprite FearowSprite, 12

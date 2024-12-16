@@ -86,7 +86,8 @@
 	const SPRITE_SLOWBRO				 
 	const SPRITE_SLOWPOKE				 
 	const SPRITE_SPEAROW				 
-	const SPRITE_VOLTORB				 
+	const SPRITE_VOLTORB
+	const SPRITE_ELECTRODE				 
 	const SPRITE_WIGGLYTUFF				 
 	const SPRITE_DODUO				
 	const SPRITE_FEAROW					 

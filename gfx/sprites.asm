@@ -68,8 +68,8 @@ MiddleAgedWomanSprite::  INCBIN "gfx/sprites/middle_aged_woman.2bpp"
 BrunetteGirlSprite::     INCBIN "gfx/sprites/brunette_girl.2bpp"
 LanceSprite::            INCBIN "gfx/sprites/lance.2bpp"
 MomSprite::              INCBIN "gfx/sprites/mom.2bpp"
-;BaldingGuySprite::       INCBIN "gfx/sprites/balding_guy.2bpp" ;; moved for space
-; LittleBoySprite::        INCBIN "gfx/sprites/little_boy.2bpp" ;; moved for space
+;BaldingGuySprite::      INCBIN "gfx/sprites/balding_guy.2bpp" ;; moved for space
+; LittleBoySprite::      INCBIN "gfx/sprites/little_boy.2bpp" ;; moved for space
 GameboyKidSprite::       INCBIN "gfx/sprites/gameboy_kid.2bpp"
 FairySprite::            INCBIN "gfx/sprites/fairy.2bpp"
 AgathaSprite::           INCBIN "gfx/sprites/agatha.2bpp"
@@ -106,6 +106,7 @@ SlowbroSprite::          INCBIN "gfx/sprites/mons/slowbro.2bpp"
 SlowpokeSprite::         INCBIN "gfx/sprites/mons/slowpoke.2bpp"
 SpearowSprite::          INCBIN "gfx/sprites/mons/spearow.2bpp"
 VoltorbSprite::          INCBIN "gfx/sprites/mons/voltorb.2bpp"
+ElectrodeSprite::        INCBIN "gfx/sprites/mons/electrode.2bpp"
 WigglytuffSprite::       INCBIN "gfx/sprites/mons/wigglytuff.2bpp"
 DoduoSprite::            INCBIN "gfx/sprites/mons/doduo.2bpp"
 FearowSprite::           INCBIN "gfx/sprites/mons/fearow.2bpp"
