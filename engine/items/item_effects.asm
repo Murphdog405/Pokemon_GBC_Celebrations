@@ -1834,7 +1834,7 @@ CoinCaseNumCoinsText:
 ItemUseOldRod:
 	call FishingInit
 	jp c, ItemUseNotTime
-	.RandomLoop
+.RandomLoop
 	call Random
 	srl a
 	jr c, .SetBite
