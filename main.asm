@@ -39,8 +39,6 @@ INCLUDE "engine/pokemon/remove_mon.asm"
 INCLUDE "engine/events/display_pokedex.asm"
 
 
-
-
 ; Hooks for color hack
 INCLUDE "color/cable_club.asm"
 INCLUDE "color/oak_intro.asm"
