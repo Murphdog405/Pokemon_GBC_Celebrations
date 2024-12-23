@@ -36,7 +36,7 @@ Some FEATURES:
 -  - Pikachu and Raichu can learn SURF through HM, just like in Yellow version
  -  PROF. OAK gives you 5 POKÉBALLS when you receive the POKÉDEX.
  -  - TM names in BAG and MART (TM24 it says TM24 THNDRBLT)
- - 20 item bag space still
+ - 20 item bag space still (Port PC)
  - Auto HM use (eg: surf, just touch the water and say YES)
  - Deletable HM's - Sort Items in BAG 
 - OAK Battle post game - Message when PC is full
@@ -51,6 +51,9 @@ Some FEATURES:
 - Swift will not hit throught Fly or Dig - Ghost now deals SUPER EFFECTIVE on Psychic Pokémon
 - Can Push Up and Down on Stat Screen to switch Pokemon
 - Can teleport inside buildings and caves
+- Move Decription when learning moves
+- Buy more coins at once from shady clerk
+- Trainers have unique movesets
 
 
 CREDITS: IF ANYONE IS MISSED PLEASE LET ME KNOW. IT’S HARD TO KEEP TRACK OF ALL CREDITS SINCE THIS HACK WAS STARTED BY ONE PERSON AND THEN FINISHED/TAKEN OVER BY ANOTHER…. BUT WE WILL GLADLY ADD YOU IN 😊.
@@ -61,7 +64,7 @@ CREDITS: IF ANYONE IS MISSED PLEASE LET ME KNOW. IT’S HARD TO KEEP TRACK OF AL
 - JoJoBear13- for his using his Trainer AI code along with Vortienes, and a lot of QOL features from Shin-PokeRed. The female sprite is based on his original girl character. We kept it.
 - RainbowMetalPigeon- For the Port PC code, and again for the help and patience with building this game. TRY HIS EXTREME YELLOW.
 -CRZ-Shadows- and Yellow Legacy Team: A lot of QOL changes came from ideas or code used in there game. See their Github for all there amazing changes.
-- JustRegularLuna/Mateo: A lot of sprites for Pokemon and Pokeball sprites used from her amazing game RED++.
+- JustRegularLuna/Mateo: A lot of sprites for Pokemon and Pokeball sprites used from her amazing game RED++. Move Description code and others
 - DarthBR
 - Dreams897
 - Engezertorung
@@ -72,6 +75,14 @@ CREDITS: IF ANYONE IS MISSED PLEASE LET ME KNOW. IT’S HARD TO KEEP TRACK OF AL
 - SCORP MILLER
 - TUXMAN
 - BEEFSTEW
+- HYD
+- BlueZangoose
+- Engezerstorung- Some color work
+- Rangi42- PRET
+- Drenn- PRET- Color changes
+- Wdpx_Phoenix
+- MegaMan-Omega- overworld sprites
+- ZetaPhoenix
 - EVERYONE WHO PLAYED THIS GAME AND AGAIN DISCORD!!
 
 
