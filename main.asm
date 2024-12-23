@@ -399,6 +399,7 @@ INCLUDE "engine/overworld/elevator.asm"
 
 INCLUDE "color/animations.asm"
 
+
 SECTION "Engine Spillover", ROMX
 
 INCLUDE "engine/overworld/use_another_repel.asm"
@@ -409,3 +410,8 @@ SECTION "Evo Moves", ROMX
 
 INCLUDE "engine/pokemon/evos_moves.asm"
 INCLUDE "data/pokemon/base_stats.asm"
+
+
+SECTION "Move Descriptions", ROMX
+
+INCLUDE "engine/pokemon/move_descriptions.asm"
