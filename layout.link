@@ -152,12 +152,12 @@ ROMX $1C
 	"bank1C"
 ;	 org $4a69 ;; commented out per Dannye
 	"BattleTransition_BlackScreen"
-	 org $5fb6
+;	 org $5fb6 ;; commented out per Dannye
 	"InitPartyMenuBlkPacket"
-	 org $6075
+;	 org $6075 ;; commented out per Dannye
 	"PrepareSuperNintendoVRAMTransfer"
 	"bank1C_extension"
-	 org $75e8
+;	 org $75e8 ;; commented out per Dannye
 	"Engine Save"
 ROMX $1D
 	"Maps 19"
