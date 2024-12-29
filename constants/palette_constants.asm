@@ -73,6 +73,7 @@ DEF SET_PAL_DEFAULT EQU $ff
 	const PAL_BADGE     ; $22
 	const PAL_CAVE      ; $23
 	const PAL_GAMEFREAK ; $24
+	const PAL_GIRL      ; $XX
 IF GEN_2_GRAPHICS
 	const PAL_BULBASAUR  ; $25
 	const PAL_IVYSAUR    ; $26
@@ -273,5 +274,6 @@ IF GEN_2_GRAPHICS
 	const PAL_AGATHA        ; $E9
 	const PAL_LANCE         ; $EA
 	const PAL_HERO          ; $EB
+	const PAL_LEAF          ; $EC
 ENDC
 DEF NUM_SGB_PALS EQU const_value

@@ -49,6 +49,7 @@ ENDC
 	RGB 31,31,31, 11,15,23, 04,04,20, 00,00,00 ; PAL_BADGE
 	RGB 31,31,31, 23,08,00, 17,14,11, 00,00,00 ; PAL_CAVE
 	RGB 31,31,31, 31,28,14, 24,20,10, 00,00,00 ; PAL_GAMEFREAK
+	RGB 31,31,31, 30,22,17, 09,20,11, 00,00,00 ; PAL_GIRL
 
 ; The following are only available with gen 2 graphics patch: individual palettes for
 ; pokemon, trainers, etc.
@@ -253,5 +254,6 @@ IF GEN_2_GRAPHICS
 	RGB 31,31,31, 27,22,17, 16,11,20, 00,00,00 ; PAL_AGATHA
 	RGB 31,31,31, 29,19,15, 21,09,05, 00,00,00 ; PAL_LANCE
 	RGB 31,31,31, 28,18,17, 22,07,08, 00,00,00 ; PAL_HERO
+	RGB 31,31,31, 30,22,17, 09,20,11, 00,00,00 ; PAL_LEAF
 ENDC
 	assert_table_length NUM_SGB_PALS
