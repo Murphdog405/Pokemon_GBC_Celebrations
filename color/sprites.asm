@@ -114,16 +114,7 @@ ColorOverworldSprite::
 	inc d
 .noCarry
 	ld a, [de] ; Get the picture ID's palette
-	jr .continue
 
-.playerSprite
-	ld a, [wPlayerGender]
-	and a
-	ld a, SPR_PAL_ORANGE
-	jr z, .continue
-	ld a, SPR_PAL_GREEN 
-
-.continue
 	; If it's 8, that means no particular palette is assigned
 	cp SPR_PAL_RANDOM
 	jr nz, .norandomColor
