@@ -92,9 +92,20 @@ ColorOverworldSprite::
 	ld e, a
 	ld d, wSpriteStateData1 >> 8
 	ld a, [de] ; Load A with picture ID
+	
+	cp SPRITE_RED
+	jr nz, .notRed
+
+	ld a, [wWalkBikeSurfState]
+	cp 3
+	ld a, [wPlayerGender]
+	cp 1
+	ld a, SPR_PAL_GREEN
+	jr z, .norandomColor
+.notRed
+	ld a, [de]
+
 	dec a
-	and a
-	jr z, .playerSprite
 
 	ld de, SpritePaletteAssignments
 	add e

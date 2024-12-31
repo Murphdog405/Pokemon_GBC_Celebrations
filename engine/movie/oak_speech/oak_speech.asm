@@ -70,9 +70,9 @@ ENDC
 	nop
 	nop
 	nop
-	;ld a, [wd732]
-	;bit BIT_DEBUG_MODE, a
-	;jp nz, .skipSpeech
+	ld a, [wd732]
+	bit BIT_DEBUG_MODE, a
+	jp nz, .skipSpeech
 .MenuCursorLoop ; difficulty menu
 	ld hl, DifficultyText
   	call PrintText
@@ -107,7 +107,6 @@ ENDC
 	ld a, [wCurrentMenuItem]
 	ld [wPlayerGender], a ; store player's gender. 00 for boy, 01 for girl
 	call ClearScreen ; clear the screen before resuming normal intro
-
 	ld de, ProfOakPic
 	lb bc, BANK(ProfOakPic), $00
 	call IntroDisplayPicCenteredOrUpperRight
@@ -133,6 +132,7 @@ ENDC
 	ld a, [wPlayerGender]
 	and a      	; check gender
 	jr z, .NotGreen1
+	call GetGreenPalID ; HAX
 	ld de, GreenPicFront
 	lb bc, BANK(GreenPicFront), $00
 .NotGreen1:
@@ -158,10 +158,17 @@ ENDC
 	ld a, [wPlayerGender] ; check gender
 	and a      ; check gender
 	jr z, .NotGreen2
+	call GetGreenPalID ; HAX
 	ld de, GreenPicFront
 	lb bc, Bank(GreenPicFront), $00
 .NotGreen2:
 	call IntroDisplayPicCenteredOrUpperRight
+
+; Set flag to prevent FadeInFromWhite from using SetPal_Overworld during the intro,
+; which would result in messed up colors in Red Picture before Shrink
+	ld hl, wCurrentMapScriptFlags
+	set 0, [hl]
+
 	call GBFadeInFromWhite
 	ld a, [wd72d]
 	and a
@@ -181,14 +188,10 @@ ENDC
 	ld de, RedSprite
 	ld hl, vSprites
 	lb bc, BANK(RedSprite), $0C
-	; call CopyVideoData
-	; ld de, ShrinkPic1
-	; lb bc, BANK(ShrinkPic1), $00
-	; call IntroDisplayPicCenteredOrUpperRight
 	ld a, [wPlayerGender] ; check gender
 	and a      ; check gender
 	jr z, .NotGreen3
-	ld de,GreenSprite
+	ld de, GreenSprite
 	lb bc, BANK(GreenSprite), $0C
 .NotGreen3:
 	ld hl, vSprites
