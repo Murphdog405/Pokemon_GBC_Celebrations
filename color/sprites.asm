@@ -96,8 +96,6 @@ ColorOverworldSprite::
 	cp SPRITE_RED
 	jr nz, .notRed
 
-	ld a, [wWalkBikeSurfState]
-	cp 3
 	ld a, [wPlayerGender]
 	cp 1
 	ld a, SPR_PAL_GREEN
