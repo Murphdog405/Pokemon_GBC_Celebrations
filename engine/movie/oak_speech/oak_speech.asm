@@ -107,6 +107,7 @@ ENDC
 	ld a, [wCurrentMenuItem]
 	ld [wPlayerGender], a ; store player's gender. 00 for boy, 01 for girl
 	call ClearScreen ; clear the screen before resuming normal intro
+
 	ld de, ProfOakPic
 	lb bc, BANK(ProfOakPic), $00
 	call IntroDisplayPicCenteredOrUpperRight
@@ -171,7 +172,7 @@ ENDC
 
 	call GBFadeInFromWhite
 	ld a, [wd72d]
-	and a
+	and a ; ???
 	jr nz, .next
 	ld hl, OakSpeechText3
 	call PrintText
@@ -237,7 +238,7 @@ OakSpeechText1:
 	text_end
 OakSpeechText2:
 	text_far _OakSpeechText2A
-	; BUG: The cry played does not match the sprite displayed.
+	; The cry played now matches the sprite displayed.
 	sound_cry_nidorino
 	text_far _OakSpeechText2B
 	text_end
