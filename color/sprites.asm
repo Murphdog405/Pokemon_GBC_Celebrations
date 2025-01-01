@@ -614,10 +614,10 @@ SpritePaletteAssignments: ; Characters on the overworld
 	db SPR_PAL_BROWN
 
 	; SPRITE_NIDORANF
-	db SPR_PAL_RANDOM
+	db SPR_PAL_BLUE
 
 	; SPRITE_NIDORANM
-	db SPR_PAL_BLUE
+	db SPR_PAL_PURPLE
 
 	; SPRITE_PIDGEY
 	db SPR_PAL_BROWN
