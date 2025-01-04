@@ -515,7 +515,7 @@ ItemUseBall:
 	ld [wd11e], a
 	ld a, [wBattleType]
 	dec a ; is this the old man battle?
-	jr z, .oldManCaughtMon ; if so, don't give the player the caught Pokémon
+	jp z, .oldManCaughtMon ; if so, don't give the player the caught Pokémon
 
 	ld hl, ItemUseBallText05
 	call PrintText
@@ -545,6 +545,8 @@ ItemUseBall:
 	call ClearSprites
 	ld a, [wEnemyMonSpecies]
 	ld [wd11e], a
+	ld a, 0
+	ld [wMoveListCounter], a
 	predef ShowPokedexData
 
 .skipShowingPokedexData
