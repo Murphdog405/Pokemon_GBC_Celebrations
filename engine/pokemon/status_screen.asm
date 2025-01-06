@@ -120,7 +120,7 @@ ENDC
 	call DrawLineBox ; Draws the box around name, HP and status
 	hlcoord 2, 7
 	nop
-	ld [hl], "<DOT>"
+	ld [hl], "."
 	dec hl
 	ld [hl], "№"
 	coord hl, 19, 9
