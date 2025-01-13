@@ -214,14 +214,14 @@ endr
 
 VermilionDock_TextPointers:
 	def_text_pointers
-	dw_const VermilionDockUnusedText, TEXT_VERMILIONDOCK_UNUSED
+;	dw_const VermilionDockUnusedText, TEXT_VERMILIONDOCK_UNUSED
 	dw_const VermilionTruck1, 	TEXT_VERMILIONDOCK_MEW
 
-VermilionDockUnusedText:
-	text_far _VermilionDockUnusedText
-	text_end
+;VermilionDockUnusedText:
+;	text_far _VermilionDockUnusedText
+;	text_end
 	
-	VermilionDockText1:
+VermilionDockText1:
 	text_far _VermilionDockText1
 	db "@"
 

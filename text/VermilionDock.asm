@@ -1,6 +1,7 @@
-_VermilionDockUnusedText::
-    text_start
-    done
+;_VermilionDockUnusedText::
+;    text_start
+;    done
+
 _VermilionDockText1::
     text "Hey! Under this"
     next "truck..."    
