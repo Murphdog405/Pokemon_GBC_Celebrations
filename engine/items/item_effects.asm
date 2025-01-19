@@ -541,13 +541,17 @@ ItemUseBall:
 	jr nz, .skipShowingPokedexData ; if so, don't show the Pokédex data
 
 	ld hl, ItemUseBallText06
-	call PrintText
-	call ClearSprites
-	ld a, [wEnemyMonSpecies]
-	ld [wd11e], a
-	ld a, 0
-	ld [wMoveListCounter], a
-	predef ShowPokedexData
+    	call PrintText
+    	call ClearSprites
+    	ld a, [wEnemyMonSpecies]
+    	ld [wd11e], a
+    	ld a, 0
+    	ld [wMoveListCounter], a
+    	ld a, [wWhichPokemon]
+        ld [wWhichItem], a
+        predef ShowPokedexData
+        ld a, [wWhichItem]
+        ld [wWhichPokemon], a
 
 .skipShowingPokedexData
 	ld a, [wPartyCount]

@@ -1952,6 +1952,8 @@ wUniQuizAnswer:: db
 
 wUnusedC000:: db
 
+wWhichItem:: db
+
 wSum:: dw
 
 ENDU
