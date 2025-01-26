@@ -283,6 +283,9 @@ endr
 	call WaitForSoundToFinish
 
 	pop af
+
+	ld [wd11e], a ;; Cry being wiped out because of Crysaudio
+
 	pop bc
 	pop de
 	pop hl
