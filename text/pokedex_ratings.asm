@@ -59,6 +59,7 @@ _DexRatingText_Own60To69::
 	text "Ho! This is"
 	line "getting even"
 	cont "better!"
+  done
 
 _DexRatingText_Own70To79::
 	text "Very good!"
