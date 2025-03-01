@@ -907,7 +907,7 @@ ClefablePicFront::    INCBIN "gfx/pokemon/front_rg/clefable.pic"
 ClefablePicBack::     INCBIN "gfx/pokemon/back/clefableb.pic"
 WeezingPicFront::     INCBIN "gfx/pokemon/front_rg/weezing.pic"
 WeezingPicBack::      INCBIN "gfx/pokemon/back/weezingb.pic"
-PersianPicFront::     INCBIN "gfx/pokemon/front_Rg/persian.pic"
+PersianPicFront::     INCBIN "gfx/pokemon/front_rg/persian.pic"
 PersianPicBack::      INCBIN "gfx/pokemon/back/persianb.pic"
 ENDC
 
