@@ -1,10 +1,3 @@
-TextScriptEndingText::
-	text_end
-
-TextScriptEnd::
-	ld hl, TextScriptEndingText
-	ret
-
 ExclamationText::
 	text_far _ExclamationText
 	text_end
@@ -47,10 +40,6 @@ BoulderText::
 
 MartSignText::
 	text_far _MartSignText
-	text_end
-
-PokeCenterSignText::
-	text_far _PokeCenterSignText
 	text_end
 
 PickUpItemText::

@@ -22,13 +22,38 @@ SECTION "rst18", ROM0[$0018]
 _Bankswitch::
 	jp Bankswitch
 
-; memory for rst vectors $20-$38 used by color hack
-
 SetRomBank::
 	ldh [hLoadedROMBank], a
 	ld [MBC1RomBank], a
 	ret
 
+SECTION "rst28", ROM0[$0028]
+_PrintText::
+	jp PrintText
+
+; PureRGBnote: MOVED: 5 extra bytes of space left here, may as well move something here that puts the space to some use
+PokemartGreetingText::
+	text_far _PokemartGreetingText
+	text_end
+
+SECTION "rst30", ROM0[$0030]
+_Predef::
+	jp Predef
+; PureRGBnote: MOVED: 5 extra bytes of space left here, may as well move something here that puts the space to some use
+PokeCenterSignText::
+	text_far _PokeCenterSignText
+	text_end
+
+SECTION "rst38", ROM0[$0038]
+TextScriptEnd::
+        pop hl ; turn the rst call into a jp by popping off the return address
+TextScriptEndNoPop::
+        ld hl, TextScriptEndingText
+DoRet::
+        ret
+
+TextScriptEndingText:: ; moved from home/overworld_text.asm
+    	text_end
 
 ; Game Boy hardware interrupts
 
