@@ -98,7 +98,8 @@ TalkToTrainer::
 	jr z, .trainerNotYetFought     ; test trainer's flag
 	ld a, $6
 	call ReadTrainerHeaderInfo     ; print after battle text
-	jp PrintText
+	rst _PrintText
+	ret
 .trainerNotYetFought
 	ld a, $4
 	call ReadTrainerHeaderInfo     ; print before battle text
@@ -257,7 +258,8 @@ SetSpritePosition2::
 	ld hl, _SetSpritePosition2
 SpritePositionBankswitch::
 	ld b, BANK("Trainer Sight")
-	jp Bankswitch ; indirect jump to one of the four functions
+	rst _Bankswitch ; indirect jump to one of the four functions
+	ret
 
 CheckForEngagingTrainers::
 	xor a

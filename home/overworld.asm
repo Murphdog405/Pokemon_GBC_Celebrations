@@ -784,7 +784,8 @@ ExtraWarpCheck::
 	ld hl, IsWarpTileInFrontOfPlayer
 .doBankswitch
 	ld b, BANK(IsWarpTileInFrontOfPlayer)
-	jp Bankswitch
+	rst _Bankswitch
+	ret
 
 MapEntryAfterBattle::
 	farcall IsPlayerStandingOnWarp ; for enabling warp testing after collisions
