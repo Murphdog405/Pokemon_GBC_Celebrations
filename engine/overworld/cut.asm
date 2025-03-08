@@ -50,7 +50,7 @@ UsedCut:
 	; fall through
 Cut2::
 	ld hl, UsedCutText
-	call PrintText
+	rst _PrintText
 	call LoadScreenTilesFromBuffer2
 	ld hl, wd730
 	res 6, [hl]

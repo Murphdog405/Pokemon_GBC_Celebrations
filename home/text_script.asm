@@ -145,7 +145,7 @@ CloseTextDisplay::
 DisplayPokemartDialogue::
 	push hl
 	ld hl, PokemartGreetingText
-	call PrintText
+	rst _PrintText
 	pop hl
 	inc hl
 	call LoadItemList
@@ -187,7 +187,7 @@ DisplaySafariGameOverText::
 
 DisplayPokemonFaintedText::
 	ld hl, PokemonFaintedText
-	call PrintText
+	rst _PrintText
 	jp AfterDisplayingTextID
 
 PokemonFaintedText::
@@ -196,7 +196,7 @@ PokemonFaintedText::
 
 DisplayPlayerBlackedOutText::
 	ld hl, PlayerBlackedOutText
-	call PrintText
+	rst _PrintText
 	ld a, [wd732]
 	res 5, a ; reset forced to use bike bit
 	ld [wd732], a
@@ -208,7 +208,7 @@ PlayerBlackedOutText::
 
 DisplayRepelWoreOffText::
 	ld hl, RepelWoreOffText
-	call PrintText
+	rst _PrintText
 	callfar UseAnotherRepel ; PureRGBnote: ADDED: when repel wears off ask to use another if available
 	jp CloseTextDisplay
 

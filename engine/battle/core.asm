@@ -269,7 +269,7 @@ EnemyRan:
 	ld [wBattleResult], a
 	ld hl, EnemyRanText
 .printText
-	call PrintText
+	rst _PrintText
 	ld a, SFX_RUN
 	call PlaySoundWaitForCurrent
 	xor a
@@ -493,7 +493,7 @@ HandlePoisonBurnLeechSeed:
 	jr z, .poisoned
 	ld hl, HurtByBurnText
 .poisoned
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wAnimationType], a
 	ld a, BURN_PSN_ANIM
@@ -526,7 +526,7 @@ HandlePoisonBurnLeechSeed:
 	call HandlePoisonBurnLeechSeed_IncreaseEnemyHP
 	push hl
 	ld hl, HurtByLeechSeedText
-	call PrintText
+	rst _PrintText
 	pop hl
 .notLeechSeeded
 	ld a, [hli]
@@ -826,7 +826,7 @@ FaintEnemyPokemon:
 	and a
 	ret z
 	ld hl, EnemyMonFaintedText
-	call PrintText
+	rst _PrintText
 	call PrintEmptyString
 	call SaveScreenTilesToBuffer1
 	xor a
@@ -948,7 +948,7 @@ TrainerBattleVictory:
 	ld a, b
 	call nz, PlayBattleVictoryMusic
 	ld hl, TrainerDefeatedText
-	call PrintText
+	rst _PrintText
 	ld a, [wLinkState]
 	cp LINK_STATE_BATTLING
 	ret z
@@ -958,7 +958,7 @@ TrainerBattleVictory:
 	call PrintEndBattleText
 ; win money
 	ld hl, MoneyForWinningText
-	call PrintText
+	rst _PrintText
 	ld de, wPlayerMoney + 2
 	ld hl, wAmountMoneyWon + 2
 	ld c, $3
@@ -1073,7 +1073,7 @@ DoUseNextMonDialogue:
 	dec a
 	ret nz ; return if it's a trainer battle
 	ld hl, UseNextMonText
-	call PrintText
+	rst _PrintText
 .displayYesNoBox
 	hlcoord 13, 9
 	lb bc, 10, 14
@@ -1159,7 +1159,7 @@ HandlePlayerBlackOut:
 	ld c, 40
 	call DelayFrames
 	ld hl, Rival1WinText
-	call PrintText
+	rst _PrintText
 	ld a, [wCurMap]
 	cp OAKS_LAB
 	ret z            ; starter battle in oak's lab: don't black out
@@ -1172,7 +1172,7 @@ HandlePlayerBlackOut:
 	jr nz, .noLinkBattle
 	ld hl, LinkBattleLostText
 .noLinkBattle
-	call PrintText
+	rst _PrintText
 	ld a, [wd732]
 	res 5, a
 	ld [wd732], a
@@ -1396,7 +1396,7 @@ EnemySendOutFirstMon:
 	bit BIT_BATTLE_SHIFT, a
 	jr nz, .next4
 	ld hl, TrainerAboutToUseText
-	call PrintText
+	rst _PrintText
 	hlcoord 0, 7
 	lb bc, 8, 1
 	ld a, TWO_OPTION_MENU
@@ -1417,7 +1417,7 @@ EnemySendOutFirstMon:
 	cp [hl]
 	jr nz, .next6
 	ld hl, AlreadyOutText
-	call PrintText
+	rst _PrintText
 .next8
 	call GoBackToPartyMenu
 	jr .next9
@@ -1439,7 +1439,7 @@ EnemySendOutFirstMon:
 	call RunPaletteCommand
 	call GBPalNormal
 	ld hl, TrainerSentOutText
-	call PrintText
+	rst _PrintText
 	ld a, [wEnemyMonSpecies2]
 	ld [wcf91], a
 	ld [wd0b5], a
@@ -1506,7 +1506,7 @@ HasMonFainted:
 	and a
 	jr nz, .done
 	ld hl, NoWillText
-	call PrintText
+	rst _PrintText
 .done
 	xor a
 	ret
@@ -1599,7 +1599,7 @@ TryRunningFromBattle:
 .trainerBattle
 	ld hl, NoRunningText
 .printCantEscapeOrNoRunningText
-	call PrintText
+	rst _PrintText
 	ld a, 1
 	ld [wForcePlayerToChooseMon], a
 	call SaveScreenTilesToBuffer1
@@ -1628,7 +1628,7 @@ TryRunningFromBattle:
 	ld a, SFX_RUN
 	call PlaySoundWaitForCurrent
 	ld hl, GotAwayText
-	call PrintText
+	rst _PrintText
 	call WaitForSoundToFinish
 	call SaveScreenTilesToBuffer1
 	scf ; set carry
@@ -2233,7 +2233,7 @@ DisplayBattleMenu::
 
 ; can't use items in link battles
 	ld hl, ItemsCantBeUsedHereText
-	call PrintText
+	rst _PrintText
 	jp DisplayBattleMenu
 
 .notLinkBattle
@@ -2269,7 +2269,7 @@ BagWasSelected:
 	jr z, .NormalMode ; Not a trainer battle
 
 	ld hl, ItemsCantBeUsedHereText ; items can't be used during trainer battles in hard mode
-	call PrintText
+	rst _PrintText
 	jp DisplayBattleMenu
 .NormalMode
 	jr DisplayPlayerBag ; no, it is a normal battle
@@ -2473,7 +2473,7 @@ PartyMenuOrRockOrRun:
 	jr nz, .notAlreadyOut
 ; mon is already out
 	ld hl, AlreadyOutText
-	call PrintText
+	rst _PrintText
 	jp .partyMonDeselected
 .notAlreadyOut
 	call HasMonFainted
@@ -2746,7 +2746,7 @@ SelectMenuItem:
 .noPP
 	ld hl, MoveNoPPText
 .print
-	call PrintText
+	rst _PrintText
 	call LoadScreenTilesFromBuffer1
 	jp MoveSelectionMenu
 
@@ -2821,7 +2821,7 @@ AnyMoveToSelect:
 	ret nz ; return if a move has PP left
 .noMovesLeft
 	ld hl, NoMovesLeftText
-	call PrintText
+	rst _PrintText
 	ld c, 60
 	call DelayFrames
 	xor a
@@ -3397,7 +3397,7 @@ MirrorMoveCheck:
 	                             ; damage calculation and accuracy tests only happen for the first hit
 	res ATTACKING_MULTIPLE_TIMES, [hl] ; clear attacking multiple times status when all attacks are over
 	ld hl, MultiHitText
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wPlayerNumHits], a
 .executeOtherEffects
@@ -3434,12 +3434,12 @@ PrintGhostText:
 	and (1 << FRZ) | SLP_MASK
 	ret nz
 	ld hl, ScaredText
-	call PrintText
+	rst _PrintText
 	xor a
 	ret
 .Ghost ; ghost's turn
 	ld hl, GetOutText
-	call PrintText
+	rst _PrintText
 	xor a
 	ret
 
@@ -3486,11 +3486,11 @@ CheckPlayerStatusConditions:
 	ld a, SLP_PLAYER_ANIM
 	call PlayMoveAnimation
 	ld hl, FastAsleepText
-	call PrintText
+	rst _PrintText
 	jr .sleepDone
 .WakeUp
 	ld hl, WokeUpText
-	call PrintText
+	rst _PrintText
 	jr .FrozenCheck
 .sleepDone
 	xor a
@@ -3502,7 +3502,7 @@ CheckPlayerStatusConditions:
 	bit FRZ, [hl] ; frozen?
 	jr z, .HeldInPlaceCheck
 	ld hl, IsFrozenText
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wPlayerUsedMove], a
 	ld hl, ExecutePlayerMoveDone ; player can't move this turn
@@ -3513,7 +3513,7 @@ CheckPlayerStatusConditions:
 	bit USING_TRAPPING_MOVE, a ; is enemy using a multi-turn move like wrap?
 	jp z, .FlinchedCheck
 	ld hl, CantMoveText
-	call PrintText
+	rst _PrintText
 	ld hl, ExecutePlayerMoveDone ; player can't move this turn
 	jp .returnToHL
 
@@ -3523,7 +3523,7 @@ CheckPlayerStatusConditions:
 	jp z, .HyperBeamCheck
 	res FLINCHED, [hl] ; reset player's flinch status
 	ld hl, FlinchedText
-	call PrintText
+	rst _PrintText
 	ld hl, ExecutePlayerMoveDone ; player can't move this turn
 	jp .returnToHL
 
@@ -3533,7 +3533,7 @@ CheckPlayerStatusConditions:
 	jr z, .AnyMoveDisabledCheck
 	res NEEDS_TO_RECHARGE, [hl] ; reset player's recharge status
 	ld hl, MustRechargeText
-	call PrintText
+	rst _PrintText
 	ld hl, ExecutePlayerMoveDone ; player can't move this turn
 	jp .returnToHL
 
@@ -3549,7 +3549,7 @@ CheckPlayerStatusConditions:
 	ld [hl], a
 	ld [wPlayerDisabledMoveNumber], a
 	ld hl, DisabledNoMoreText
-	call PrintText
+	rst _PrintText
 
 .ConfusedCheck
 	ld a, [wPlayerBattleStatus1]
@@ -3561,11 +3561,11 @@ CheckPlayerStatusConditions:
 	ld hl, wPlayerBattleStatus1
 	res CONFUSED, [hl] ; if confused counter hit 0, reset confusion status
 	ld hl, ConfusedNoMoreText
-	call PrintText
+	rst _PrintText
 	jr .TriedToUseDisabledMoveCheck
 .IsConfused
 	ld hl, IsConfusedText
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wAnimationType], a
 	ld a, CONF_PLAYER_ANIM
@@ -3600,7 +3600,7 @@ CheckPlayerStatusConditions:
 	cp $3F ; 25% to be fully paralyzed
 	jr nc, .BideCheck
 	ld hl, FullyParalyzedText
-	call PrintText
+	rst _PrintText
 
 .MonHurtItselfOrFullyParalysed
 	ld hl, wPlayerBattleStatus1
@@ -3650,7 +3650,7 @@ CheckPlayerStatusConditions:
 	ld hl, wPlayerBattleStatus1
 	res STORING_ENERGY, [hl] ; not using bide any more
 	ld hl, UnleashedEnergyText
-	call PrintText
+	rst _PrintText
 	ld a, 1
 	ld [wPlayerMovePower], a
 	ld hl, wPlayerBideAccumulatedDamage + 1
@@ -3680,7 +3680,7 @@ CheckPlayerStatusConditions:
 	ld a, THRASH
 	ld [wPlayerMoveNum], a
 	ld hl, ThrashingAboutText
-	call PrintText
+	rst _PrintText
 	ld hl, wPlayerNumAttacksLeft
 	dec [hl] ; did Thrashing About counter hit 0?
 	ld hl, PlayerCalcMoveDamage ; skip DecrementPP
@@ -3701,7 +3701,7 @@ CheckPlayerStatusConditions:
 	bit USING_TRAPPING_MOVE, [hl] ; is mon using multi-turn move?
 	jp z, .RageCheck
 	ld hl, AttackContinuesText
-	call PrintText
+	rst _PrintText
 	ld a, [wPlayerNumAttacksLeft]
 	dec a ; did multi-turn move end?
 	ld [wPlayerNumAttacksLeft], a
@@ -3816,7 +3816,7 @@ MoveIsDisabledText:
 
 HandleSelfConfusionDamage:
 	ld hl, HurtItselfText
-	call PrintText
+	rst _PrintText
 	ld hl, wEnemyMonDefense
 	ld a, [hli]
 	push af
@@ -3928,7 +3928,7 @@ PrintMoveFailureText:
 	ld hl, IsUnaffectedText
 .gotTextToPrint
 	push de
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wCriticalHitOrOHKO], a
 	pop de
@@ -3957,7 +3957,7 @@ PrintMoveFailureText:
 	ld [hl], a
 .applyRecoil
 	ld hl, KeptGoingAndCrashedText
-	call PrintText
+	rst _PrintText
 	ld b, $4
 	predef PredefShakeScreenHorizontally
 	ldh a, [hWhoseTurn]
@@ -3997,7 +3997,7 @@ PrintCriticalOHKOText:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wCriticalHitOrOHKO], a
 .done
@@ -4131,7 +4131,7 @@ CheckForDisobedience:
 	cp b
 	jr nc, .monDoesNothing
 	ld hl, WontObeyText
-	call PrintText
+	rst _PrintText
 	call HandleSelfConfusionDamage
 	jp .cannotUseMove
 .monNaps
@@ -4157,7 +4157,7 @@ CheckForDisobedience:
 	jr z, .printText
 	ld hl, IgnoredOrdersText
 .printText
-	call PrintText
+	rst _PrintText
 	jr .cannotUseMove
 .useRandomMove
 	ld a, [wBattleMonMoves + 1]
@@ -5088,7 +5088,7 @@ AttackSubstitute:
 ; because this function is never called in that case.
 
 	ld hl, SubstituteTookDamageText
-	call PrintText
+	rst _PrintText
 ; values for player turn
 	ld de, wEnemySubstituteHP
 	ld bc, wEnemyBattleStatus2
@@ -5115,7 +5115,7 @@ AttackSubstitute:
 	ld l, c
 	res HAS_SUBSTITUTE_UP, [hl] ; unset the substitute bit
 	ld hl, SubstituteBrokeText
-	call PrintText
+	rst _PrintText
 ; flip whose turn it is for the next function call
 	ldh a, [hWhoseTurn]
 	xor $01
@@ -5173,7 +5173,7 @@ HandleBuildingRage:
 	ld [hl], ATTACK_UP1_EFFECT
 	push hl
 	ld hl, BuildingRageText
-	call PrintText
+	rst _PrintText
 	call StatModifierUpEffect ; stat modifier raising function
 	pop hl
 	xor a
@@ -5217,7 +5217,7 @@ MirrorMoveCopyMove:
 	jr nz, ReloadMoveData
 .mirrorMoveFailed
 	ld hl, MirrorMoveFailedText
-	call PrintText
+	rst _PrintText
 	xor a
 	ret
 
@@ -5891,7 +5891,7 @@ EnemyCheckIfMirrorMoveEffect:
 	jp nz, GetEnemyAnimationType
 	res ATTACKING_MULTIPLE_TIMES, [hl] ; mon is no longer hitting multiple times
 	ld hl, HitXTimesText
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wEnemyNumHits], a
 .notMultiHitMove
@@ -5924,7 +5924,7 @@ CheckEnemyStatusConditions:
 	and a
 	jr z, .wokeUp ; if the number of turns hit 0, wake up
 	ld hl, FastAsleepText
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wAnimationType], a
 	ld a, SLP_ANIM
@@ -5932,7 +5932,7 @@ CheckEnemyStatusConditions:
 	jr .sleepDone
 .wokeUp
 	ld hl, WokeUpText
-	call PrintText
+	rst _PrintText
 	jr .checkIfFrozen
 .sleepDone
 	xor a
@@ -5943,7 +5943,7 @@ CheckEnemyStatusConditions:
 	bit FRZ, [hl]
 	jr z, .checkIfTrapped
 	ld hl, IsFrozenText
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wEnemyUsedMove], a
 	ld hl, ExecuteEnemyMoveDone ; enemy can't move this turn
@@ -5953,7 +5953,7 @@ CheckEnemyStatusConditions:
 	bit USING_TRAPPING_MOVE, a ; is the player using a multi-turn attack like warp
 	jp z, .checkIfFlinched
 	ld hl, CantMoveText
-	call PrintText
+	rst _PrintText
 	ld hl, ExecuteEnemyMoveDone ; enemy can't move this turn
 	jp .enemyReturnToHL
 .checkIfFlinched
@@ -5962,7 +5962,7 @@ CheckEnemyStatusConditions:
 	jp z, .checkIfMustRecharge
 	res FLINCHED, [hl]
 	ld hl, FlinchedText
-	call PrintText
+	rst _PrintText
 	ld hl, ExecuteEnemyMoveDone ; enemy can't move this turn
 	jp .enemyReturnToHL
 .checkIfMustRecharge
@@ -5971,7 +5971,7 @@ CheckEnemyStatusConditions:
 	jr z, .checkIfAnyMoveDisabled
 	res NEEDS_TO_RECHARGE, [hl]
 	ld hl, MustRechargeText
-	call PrintText
+	rst _PrintText
 	ld hl, ExecuteEnemyMoveDone ; enemy can't move this turn
 	jp .enemyReturnToHL
 .checkIfAnyMoveDisabled
@@ -5986,7 +5986,7 @@ CheckEnemyStatusConditions:
 	ld [hl], a
 	ld [wEnemyDisabledMoveNumber], a
 	ld hl, DisabledNoMoreText
-	call PrintText
+	rst _PrintText
 .checkIfConfused
 	ld a, [wEnemyBattleStatus1]
 	add a ; check if enemy mon is confused
@@ -5997,11 +5997,11 @@ CheckEnemyStatusConditions:
 	ld hl, wEnemyBattleStatus1
 	res CONFUSED, [hl] ; if confused counter hit 0, reset confusion status
 	ld hl, ConfusedNoMoreText
-	call PrintText
+	rst _PrintText
 	jp .checkIfTriedToUseDisabledMove
 .isConfused
 	ld hl, IsConfusedText
-	call PrintText
+	rst _PrintText
 	xor a
 	ld [wAnimationType], a
 	ld a, CONF_ANIM
@@ -6014,7 +6014,7 @@ CheckEnemyStatusConditions:
 	and 1 << CONFUSED ; if mon hurts itself, clear every other status from wEnemyBattleStatus1
 	ld [hl], a
 	ld hl, HurtItselfText
-	call PrintText
+	rst _PrintText
 	ld hl, wBattleMonDefense
 	ld a, [hli]
 	push af
@@ -6073,7 +6073,7 @@ CheckEnemyStatusConditions:
 	cp 25 percent ; chance to be fully paralysed
 	jr nc, .checkIfUsingBide
 	ld hl, FullyParalyzedText
-	call PrintText
+	rst _PrintText
 .monHurtItselfOrFullyParalysed
 	ld hl, wEnemyBattleStatus1
 	ld a, [hl]
@@ -6120,7 +6120,7 @@ CheckEnemyStatusConditions:
 	ld hl, wEnemyBattleStatus1
 	res STORING_ENERGY, [hl] ; not using bide any more
 	ld hl, UnleashedEnergyText
-	call PrintText
+	rst _PrintText
 	ld a, $1
 	ld [wEnemyMovePower], a
 	ld hl, wEnemyBideAccumulatedDamage + 1
@@ -6150,7 +6150,7 @@ CheckEnemyStatusConditions:
 	ld a, THRASH
 	ld [wEnemyMoveNum], a
 	ld hl, ThrashingAboutText
-	call PrintText
+	rst _PrintText
 	ld hl, wEnemyNumAttacksLeft
 	dec [hl] ; did Thrashing About counter hit 0?
 	ld hl, EnemyCalcMoveDamage ; skip DecrementPP
@@ -6170,7 +6170,7 @@ CheckEnemyStatusConditions:
 	bit USING_TRAPPING_MOVE, [hl] ; is mon using multi-turn move?
 	jp z, .checkIfUsingRage
 	ld hl, AttackContinuesText
-	call PrintText
+	rst _PrintText
 	ld hl, wEnemyNumAttacksLeft
 	dec [hl] ; did multi-turn move end?
 	ld hl, GetEnemyAnimationType ; if it didn't, skip damage calculation (deal damage equal to last hit),
@@ -7019,7 +7019,7 @@ _InitBattleCommon:
 	xor a
 	ldh [hAutoBGTransferEnabled], a
 	ld hl, .emptyString
-	call PrintText
+	rst _PrintText
 	call SaveScreenTilesToBuffer1
 	call ClearScreen
 	ld a, $98

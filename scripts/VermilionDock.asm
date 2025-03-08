@@ -242,11 +242,11 @@ VermilionDockScriptPointers:
 VermilionTruck1:
 	text_asm
 	ld hl, VermilionDockText1
-	call PrintText	
+	rst _PrintText	
 	CheckEvent EVENT_BEAT_MEW
 	jr nz, .alreadyBattled
 	ld hl, VermilionDockText3
-	call PrintText
+	rst _PrintText
 	ld a, MEW
 	ld [wCurOpponent], a
 	call PlayCry ; play Pokémon cry
@@ -258,7 +258,7 @@ VermilionTruck1:
 	jp TextScriptEnd
 .alreadyBattled
 	ld hl, VermilionDockText2
-	call PrintText
+	rst _PrintText
 	call ResetToScript0
 	jp TextScriptEnd
 
