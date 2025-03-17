@@ -742,6 +742,22 @@ PlayMapChangeSound::
 	ret nz
 	jp GBFadeOutToWhite ; HAX: Fade to white instead of black. Looks nicer IMO.
 
+CheckIfInFlyMap::
+	call CheckIfInOutsideMap
+	ret z
+	; a = [wCurMapTileset]
+	ld a, [wCurMap]
+	cp CELADON_MANSION_ROOF
+	ret z
+	cp CELADON_MART_ROOF
+	ret z
+	; fallthrough
+CheckIfInDigMap::
+	call CheckIfInOutsideMap
+	ret z
+	cp FOREST
+	ret
+
 CheckIfInOutsideMap::
 ; If the player is in an outside map (a town or route), set the z flag
 	ld a, [wCurMapTileset]
