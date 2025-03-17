@@ -379,6 +379,9 @@ OverworldLoopLessDelay::
 	ld a, d
 	and a
 	jr z, .allPokemonFainted
+	ld a, [wSurrenderedFromTrainerBattle]
+	and a
+	jr nz, .allPokemonFainted
 .noFaintCheck
 	ld c, 10
 	call DelayFrames
@@ -825,6 +828,8 @@ HandleBlackOut::
 	call ResetStatusAndHalveMoneyOnBlackout
 	call PrepareForSpecialWarp
 	call PlayDefaultMusicFadeOutCurrent
+	xor a
+	ld [wSurrenderedFromTrainerBattle], a
 	jp SpecialEnterMap
 
 StopMusic::
@@ -2092,7 +2097,7 @@ LoadPlayerSpriteGraphicsCommon::
 LoadMapHeader::
 	farcall MarkTownVisitedAndLoadMissableObjects
 	ld a, [wCurMapTileset]
-	ld [wUnusedD119], a
+;	ld [wUnusedD119], a
 	ld a, [wCurMap]
 	call SwitchToMapRomBank
 	ld a, [wCurMapTileset]
@@ -2393,7 +2398,7 @@ LoadMapData::
 	ldh [hSCY], a
 	ldh [hSCX], a
 	ld [wWalkCounter], a
-	ld [wUnusedD119], a
+;	ld [wUnusedD119], a
 	ld [wWalkBikeSurfStateCopy], a
 	ld [wSpriteSetID], a
 	call LoadTextBoxTilePatterns
