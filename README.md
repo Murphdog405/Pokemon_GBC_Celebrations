@@ -15,6 +15,7 @@ Some FEATURES:
 - Play with Gen 1 or Gen 2 Sprites.... Change in Includes.asm from 0 to 1
 - Play with Gen 1 or Gen 2 Audio... Change in Includes.asm from 0 to 1
 - Play on regular overworld map or Snowy map... Change in Includes.asm from 0 to 1
+- All Party Menu Icons now color as well... Change in Includes.asm for ALT Color
 - GREEN: Features restored, SGB Border, Flowers, Overworld and more!
 - Now you can Play Gen1 as a girl!
  - All 151 Pokémons can be caught or evolved without trading
@@ -26,6 +27,7 @@ Some FEATURES:
  - Gust is now a Flying Type instead of NORMAL
  - IN-GAME MOVES LEARNSET POKEDEX
 - Base Stats displayed in POKEDEX
+- Can Now Surrender In Battle
  - Added Pokémon like Magmar / Electabuzz / Staryu and others to earlier routes (consult documentation) - Infinite TM's (they are reusable like newer gens)
  - Gym Leaders, Rival, Rockets and other trainers had a buff in level, moves and parties (some parties to match Anime/Lets go Pikachu/References)
  - Move Relearner added in Fuchsia - Move Deleter added in Vermilion (undeletable HMs)
@@ -51,9 +53,13 @@ Some FEATURES:
 - Swift will not hit throught Fly or Dig - Ghost now deals SUPER EFFECTIVE on Psychic Pokémon
 - Can Push Up and Down on Stat Screen to switch Pokemon
 - Can teleport inside buildings and caves
+- Select Button to use Bicycle (If Obtained)
 - Move Decription when learning moves
+- SS Ticket, Lift Key, Card Key, Secret Key all disappear after use
 - Buy more coins at once from shady clerk
 - Trainers have unique movesets
+- Mew Glitch/Missingo Glitch Restored
+- Lapras Sprites swims now in Fuchsia City
 
 
 CREDITS: IF ANYONE IS MISSED PLEASE LET ME KNOW. IT’S HARD TO KEEP TRACK OF ALL CREDITS SINCE THIS HACK WAS STARTED BY ONE PERSON AND THEN FINISHED/TAKEN OVER BY ANOTHER…. BUT WE WILL GLADLY ADD YOU IN 😊.
