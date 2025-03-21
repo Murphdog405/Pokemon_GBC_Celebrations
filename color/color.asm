@@ -672,7 +672,6 @@ SetPal_PartyMenu:
 	ld a, 2
 	ldh [rSVBK], a
 
-	CALL_INDIRECT LoadOverworldSpritePalettes
 ;	CALL_INDIRECT LoadOverworldSpritePalettes
 
 	ld d, PAL_GREENBAR ; Filler for palette 0 (technically, green)
