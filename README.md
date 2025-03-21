@@ -60,6 +60,7 @@ Some FEATURES:
 - Trainers have unique movesets
 - Mew Glitch/Missingo Glitch Restored
 - Lapras Sprites swims now in Fuchsia City
+- EXP All can now be turned on or off when obtained
 
 
 CREDITS: IF ANYONE IS MISSED PLEASE LET ME KNOW. IT’S HARD TO KEEP TRACK OF ALL CREDITS SINCE THIS HACK WAS STARTED BY ONE PERSON AND THEN FINISHED/TAKEN OVER BY ANOTHER…. BUT WE WILL GLADLY ADD YOU IN 😊.
