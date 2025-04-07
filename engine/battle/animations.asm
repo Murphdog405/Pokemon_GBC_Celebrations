@@ -967,6 +967,19 @@ CallWithTurnFlipped:
 	ldh [hWhoseTurn], a
 	ret
 
+CallOnEnemyTurn:
+	ldh a, [hWhoseTurn]
+	push af
+	ld a, 1
+	ldh [hWhoseTurn], a
+	ld de, .returnAddress1
+	push de
+	jp hl
+.returnAddress1
+	pop af
+	ldh [hWhoseTurn], a
+	ret
+
 ; flashes the screen for an extended period (48 frames)
 AnimationFlashScreenLong:
 	ld a, 3 ; cycle through the palettes 3 times
@@ -1728,6 +1741,10 @@ UpwardBallsAnimXCoordinatesEnemyTurn:
 	db $60, $90, $78, $68, $88, $80
 	db -1 ; end
 
+AnimationMinimizeEnemyMon:
+	ld hl, AnimationMinimizeMon
+	jp CallOnEnemyTurn
+
 AnimationMinimizeMon:
 ; Changes the mon's sprite to a mini black sprite. Used by the
 ; Minimize animation.
@@ -1937,6 +1954,10 @@ WavyScreenLineOffsets:
 	db 0, 0, 0, 0, 0,  1,  1,  1,  2,  2,  2,  2,  2,  1,  1,  1
 	db 0, 0, 0, 0, 0, -1, -1, -1, -2, -2, -2, -2, -2, -1, -1, -1
 	db $80 ; terminator
+
+AnimationSubstituteEnemyMon:
+	ld hl, AnimationSubstitute
+	jp CallOnEnemyTurn
 
 AnimationSubstitute:
 ; Changes the pokemon's sprite to the mini sprite
