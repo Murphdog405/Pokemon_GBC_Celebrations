@@ -28,8 +28,9 @@ Some FEATURES:
  - IN-GAME MOVES LEARNSET POKEDEX
 - Base Stats displayed in POKEDEX
 - Can Now Surrender In Battle
- - Added Pokémon like Magmar / Electabuzz / Staryu and others to earlier routes (consult documentation) - Infinite TM's (they are reusable like newer gens)
- - Gym Leaders, Rival, Rockets and other trainers had a buff in level, moves and parties (some parties to match Anime/Lets go Pikachu/References)
+- Can Obtain All Starters From NPCs Now (Like Yellow Version)
+- Added Pokémon like Magmar / Electabuzz / Staryu and others to earlier routes (consult documentation) - Infinite TM's (they are reusable like newer gens)
+- Gym Leaders, Rival, Rockets and other trainers had a buff in level, moves and parties (some parties to match Anime/Lets go Pikachu/References)
  - Move Relearner added in Fuchsia - Move Deleter added in Vermilion (undeletable HMs)
  - All overworld Pokémon icons have been updated (no more generic ones)
  - Party Mini sprites have been updated - Caught Pokémon icon added in HUD Battle 
@@ -85,7 +86,7 @@ CREDITS: IF ANYONE IS MISSED PLEASE LET ME KNOW. IT’S HARD TO KEEP TRACK OF AL
 - HYD
 - BlueZangoose
 - Engezerstorung- Some color work
-- Rangi42- PRET
+- Rangi42- PRET/ N64 Tileset
 - Drenn- PRET- Color changes
 - Wdpx_Phoenix
 - MegaMan-Omega- overworld sprites

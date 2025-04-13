@@ -87,8 +87,10 @@ ErikaSprite::           INCBIN "gfx/sprites/erika.2bpp"
 KogaSprite::            INCBIN "gfx/sprites/koga.2bpp"
 SabrinaSprite::         INCBIN "gfx/sprites/sabrina.2bpp"
 BlaineSprite::          INCBIN "gfx/sprites/blaine.2bpp"
-BillSprite::            INCBIN "gfx/sprites/bill.2bpp"
+BillSprite::             INCBIN "gfx/sprites/bill.2bpp"
+OfficerJennySprite::     INCBIN "gfx/sprites/officer_jenny.2bpp"
 ArticunoSprite::         INCBIN "gfx/sprites/mons/articuno.2bpp"
+BulbasaurSprite::        INCBIN "gfx/sprites/mons/bulbasaur.2bpp"
 ChanseySprite::          INCBIN "gfx/sprites/mons/chansey.2bpp"
 ClefairySprite::         INCBIN "gfx/sprites/mons/clefairy.2bpp"
 CuboneSprite::           INCBIN "gfx/sprites/mons/cubone.2bpp"
@@ -105,6 +107,10 @@ PsyduckSprite::          INCBIN "gfx/sprites/mons/psyduck.2bpp"
 SlowbroSprite::          INCBIN "gfx/sprites/mons/slowbro.2bpp"
 SlowpokeSprite::         INCBIN "gfx/sprites/mons/slowpoke.2bpp"
 SpearowSprite::          INCBIN "gfx/sprites/mons/spearow.2bpp"
+
+
+SECTION "NPC Sprites 4", ROMX
+
 VoltorbSprite::          INCBIN "gfx/sprites/mons/voltorb.2bpp"
 ElectrodeSprite::        INCBIN "gfx/sprites/mons/electrode.2bpp"
 WigglytuffSprite::       INCBIN "gfx/sprites/mons/wigglytuff.2bpp"

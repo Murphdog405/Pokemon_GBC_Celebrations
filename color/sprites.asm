@@ -642,10 +642,16 @@ SpritePaletteAssignments: ; Characters on the overworld
 	; SPRITE_BILL
 	db SPR_PAL_ORANGE
 
+	; SPRITE_OFFICER_JENNY
+	db SPR_PAL_BLUE
+
 ; Map Pokemons
 
 	; SPRITE ARTICUNO
 	db SPR_PAL_BLUE
+
+	; SPRITE_BULBASAUR
+	db SPR_PAL_GREEN
 
 	; SPRITE_CHANSEY
 	db SPR_PAL_PURPLE
