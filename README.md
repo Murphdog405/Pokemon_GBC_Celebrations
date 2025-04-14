@@ -95,13 +95,16 @@ CREDITS: IF ANYONE IS MISSED PLEASE LET ME KNOW. IT’S HARD TO KEEP TRACK OF AL
 
 
 To set up the repository, see [**INSTALL.md**](INSTALL.md).
+USE RGBDS 7.0 or 8.0
 
 ## See also
 
 - [**Wiki**][wiki] (includes [tutorials][tutorials])
 - [**Symbols**][symbols]
 
-You can find us on [Discord (pret, #pokered)](https://discord.gg/d5dubZ3).
+You can find Pret [Discord (pret, #pokered)](https://discord.gg/d5dubZ3).
+
+CREAMELDUDJAFAR'S DISCORD: https://discord.gg/3YQrCFzCNv
 
 For other pret projects, see [pret.github.io](https://pret.github.io/).
 
