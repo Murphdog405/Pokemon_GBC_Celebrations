@@ -13,9 +13,7 @@ _LoadMapVramAndColors:
 
 ; HAX: rst10 is used for the vblank hook
 SECTION "rst10", ROM0[$0010]
-	ld b, BANK(GbcVBlankHook)
-	ld hl, GbcVBlankHook
-	jp Bankswitch
+	
 
 ; HAX: rst18 can be used for "Bankswitch"
 SECTION "rst18", ROM0[$0018]
