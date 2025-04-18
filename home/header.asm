@@ -20,6 +20,7 @@ SECTION "rst18", ROM0[$0018]
 _Bankswitch::
 	jp Bankswitch
 
+SECTION "rst20", ROM0[$0020]
 SetRomBank::
 	ldh [hLoadedROMBank], a
 	ld [MBC1RomBank], a
