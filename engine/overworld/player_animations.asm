@@ -40,7 +40,7 @@ EnterMapAnim::
 	jp RestoreFacingDirectionAndYScreenPos
 .dungeonWarpAnimation
 	ld c, 50
-	call DelayFrames
+	rst _DelayFrames
 	call PlayerSpinWhileMovingDown
 	jr .done
 .flyAnimation
@@ -117,7 +117,7 @@ _LeaveMapAnim::
 	jr z, .playerStandingOnWarpPad
 ; if not standing on a warp pad, there is an extra delay
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 .playerStandingOnWarpPad
 	call GBFadeOutToWhite
 	jp RestoreFacingDirectionAndYScreenPos
@@ -159,7 +159,7 @@ _LeaveMapAnim::
 	ld de, FlyAnimationScreenCoords1
 	call DoFlyAnimation
 	ld c, 40
-	call DelayFrames
+	rst _DelayFrames
 	ld hl, wFlyAnimCounter
 	ld a, 11
 	ld [hli], a ; wFlyAnimCounter
@@ -218,7 +218,7 @@ LeaveMapThroughHoleAnim:
 	ld [wShadowOAMSprite00YCoord], a
 	ld [wShadowOAMSprite01YCoord], a
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	; hide upper half of player's sprite
 	ld a, $a0
 	ld [wShadowOAMSprite02YCoord], a
@@ -318,7 +318,7 @@ PlayerSpinInPlace:
 	ld a, [wPlayerSpinInPlaceAnimFrameDelayEndValue]
 	cp c
 	ret z
-	call DelayFrames
+	rst _DelayFrames
 	jr PlayerSpinInPlace
 
 PlayerSpinWhileMovingUpOrDown:
@@ -334,7 +334,7 @@ PlayerSpinWhileMovingUpOrDown:
 	ret z
 	ld a, [wPlayerSpinWhileMovingUpOrDownAnimFrameDelay]
 	ld c, a
-	call DelayFrames
+	rst _DelayFrames
 	jr PlayerSpinWhileMovingUpOrDown
 
 RestoreFacingDirectionAndYScreenPos:
@@ -382,7 +382,7 @@ INCLUDE "data/tilesets/warp_pad_hole_tile_ids.asm"
 
 FishingAnim:
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	ld hl, wd736
 	set 6, [hl] ; reserve the last 4 OAM entries
 	ld hl, vNPCSprites
@@ -419,7 +419,7 @@ FishingAnim:
 	ld bc, $4
 	call CopyData
 	ld c, 100
-	call DelayFrames
+	rst _DelayFrames
 	ld a, [wRodResponse]
 	and a
 	ld hl, NoNibbleText

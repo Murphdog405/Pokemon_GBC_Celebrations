@@ -136,7 +136,7 @@ DrawFrameBlock:
 	jr z, .advanceFrameBlockDestAddr ; skip delay and don't clean OAM buffer
 	ld a, [wSubAnimFrameDelay]
 	ld c, a
-	call DelayFrames
+	rst _DelayFrames
 	ld a, [wFBMode]
 	cp FRAMEBLOCKMODE_03
 	jr z, .advanceFrameBlockDestAddr ; skip cleaning OAM buffer
@@ -430,7 +430,7 @@ MoveAnimation:
 	jr .next4
 .animationsDisabled
 	ld c, 30
-	call DelayFrames
+	rst _DelayFrames
 .next4
 	vc_hook_red Stop_reducing_move_anim_flashing
 	vc_hook_blue Stop_reducing_move_anim_flashing_Rock_Slide_Dream_Eater
@@ -531,7 +531,7 @@ AnimationShakeScreenHorizontallySlow:
 	inc a
 	ldh [rWX], a
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	dec b
 	jr nz, .loop1
 	pop bc
@@ -540,7 +540,7 @@ AnimationShakeScreenHorizontallySlow:
 	dec a
 	ldh [rWX], a
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	dec b
 	jr nz, .loop2
 	pop bc
@@ -652,7 +652,7 @@ AnimationCleanOAM:
 	push de
 	push bc
 	push af
-	call DelayFrame
+	rst _DelayFrame
 	call ClearSprites
 	pop af
 	pop bc
@@ -748,7 +748,7 @@ DoBallShakeSpecialEffects:
 	ld a, SFX_TINK
 	call PlaySound
 	ld c, 40
-	call DelayFrames
+	rst _DelayFrames
 .skipPlayingSound
 	ld a, [wSubAnimCounter]
 	dec a
@@ -915,7 +915,7 @@ TradeJumpPokeball:
 .skipPlayingSound
 	push bc
 	ld c, 5
-	call DelayFrames
+	rst _DelayFrames
 	pop bc
 	ldh a, [hSCX] ; background scroll X
 	sub 8 ; scroll to the left
@@ -1060,11 +1060,11 @@ AnimationFlashScreen:
 	ld a, %00011011 ; 0, 1, 2, 3 (inverted colors)
 	ldh [rBGP], a
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	xor a ; white out background
 	ldh [rBGP], a
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	pop af
 	ldh [rBGP], a ; restore initial palette
 	ret
@@ -1267,7 +1267,7 @@ _AnimationSlideMonUp:
 	jr nz, .fillBottomRowLoop
 
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	pop bc
 	pop hl
 	pop de
@@ -1387,10 +1387,10 @@ AnimationBlinkMon:
 	push bc
 	call AnimationHideMonPic
 	ld c, 5
-	call DelayFrames
+	rst _DelayFrames
 	call AnimationShowMonPic
 	ld c, 5
-	call DelayFrames
+	rst _DelayFrames
 	pop bc
 	dec c
 	jr nz, .loop
@@ -1543,7 +1543,7 @@ AnimationSpiralBallsInward:
 	dec c
 	jr nz, .innerLoop
 	ld c, 5
-	call DelayFrames
+	rst _DelayFrames
 	pop hl
 	inc hl
 	inc hl
@@ -1670,7 +1670,7 @@ _AnimationShootBallsUpward:
 	call BattleAnimWriteOAMEntry
 	dec b
 	jr nz, .initOAMLoop
-	call DelayFrame
+	rst _DelayFrame
 	pop bc
 	ld a, b
 	ld [wNumShootingBalls], a
@@ -1698,7 +1698,7 @@ _AnimationShootBallsUpward:
 	add hl, de ; next OAM entry
 	dec b
 	jr nz, .innerLoop
-	call DelayFrames
+	rst _DelayFrames
 	pop bc
 	ld a, [wNumShootingBalls]
 	and a
@@ -1795,7 +1795,7 @@ AnimationSlideMonDownAndHide:
 	call GetMonSpriteTileMapPointerFromRowCount
 	call CopyPicTiles
 	ld c, 8
-	call DelayFrames
+	rst _DelayFrames
 	pop af
 	inc a
 	pop bc
@@ -1845,7 +1845,7 @@ _AnimationSlideMonOff:
 	jr nz, .rowLoop
 	ld a, [wSlideMonDelay]
 	ld c, a
-	call DelayFrames
+	rst _DelayFrames
 	pop hl
 	dec d
 	dec e
@@ -2605,12 +2605,12 @@ ShakeEnemyHUD_ShakeBG:
 	add d
 	ldh [hSCX], a
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	ld a, [wTempSCX]
 	sub d
 	ldh [hSCX], a
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	dec e
 	jr nz, .loop
 	ld a, [wTempSCX]

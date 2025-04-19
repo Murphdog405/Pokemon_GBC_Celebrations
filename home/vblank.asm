@@ -104,7 +104,7 @@ DelayFrame::
 
 DEF NOT_VBLANKED EQU 1
 
-	call DelayFrameHook ; HAX
+	rst _DelayFrameHook ; HAX
 	nop
 	;ld a, NOT_VBLANKED
 	;ldh [hVBlankOccurred], a

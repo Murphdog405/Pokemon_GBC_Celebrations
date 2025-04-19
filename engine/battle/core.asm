@@ -63,7 +63,7 @@ SlidePlayerAndEnemySilhouettesOnScreen:
 	ld c, $90
 	ld a, c
 	ldh [hSCX], a
-	;call DelayFrame
+	;rst _DelayFrame
 	nop
 	nop
 	nop
@@ -160,7 +160,7 @@ StartBattle:
 	dec a ; is it a trainer battle?
 	call nz, EnemySendOutFirstMon ; if it is a trainer battle, send out enemy mon
 	ld c, 40
-	call DelayFrames
+	rst _DelayFrames
 	call SaveScreenTilesToBuffer1
 .checkAnyPartyAlive
 	call AnyPartyAlive
@@ -541,7 +541,7 @@ HandlePoisonBurnLeechSeed:
 	ret nz          ; test if fainted
 	call DrawHUDsAndHPBars
 	ld c, 20
-	call DelayFrames
+	rst _DelayFrames
 	xor a
 	ret
 
@@ -963,7 +963,7 @@ TrainerBattleVictory:
 	ret z
 	call ScrollTrainerPicAfterBattle
 	ld c, 40
-	call DelayFrames
+	rst _DelayFrames
 	call PrintEndBattleText
 ; win money
 	ld hl, MoneyForWinningText
@@ -1174,7 +1174,7 @@ HandlePlayerBlackOut:
 	call ClearScreenArea
 	call ScrollTrainerPicAfterBattle
 	ld c, 40
-	call DelayFrames
+	rst _DelayFrames
 ;	ld hl, Rival1WinText
 ;	rst _PrintText
 	call PrintEndBattleText
@@ -1259,7 +1259,7 @@ SlideDownFaintedMonPic:
 	ld de, SevenSpacesText
 	call PlaceString
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	pop hl
 	pop de
 	pop bc
@@ -1309,7 +1309,7 @@ SlideTrainerPicOffScreen:
 	dec b
 	jr nz, .rowLoop
 	ld c, 2
-	call DelayFrames
+	rst _DelayFrames
 	pop hl
 	pop bc
 	dec c
@@ -1845,7 +1845,7 @@ AnimateRetreatingPlayerMon:
 	ldh [hBaseTileID], a
 	predef CopyDownscaledMonTiles
 	ld c, 4
-	call DelayFrames
+	rst _DelayFrames
 	call .clearScreenArea
 	hlcoord 4, 9
 	lb bc, 3, 3
@@ -2140,12 +2140,12 @@ DisplayBattleMenu::
 	hlcoord 9, 14
 	ld [hl], "▶"
 	ld c, 80
-	call DelayFrames
+	rst _DelayFrames
 	ld [hl], " "
 	hlcoord 9, 16
 	ld [hl], "▶"
 	ld c, 50
-	call DelayFrames
+	rst _DelayFrames
 	ld [hl], "▷"
 	ld a, $2 ; select the "ITEM" menu
 	jp .upperLeftMenuItemWasNotSelected
@@ -2520,7 +2520,7 @@ PartyMenuOrRockOrRun:
 SwitchPlayerMon:
 	callfar RetreatMon
 	ld c, 50
-	call DelayFrames
+	rst _DelayFrames
 	call AnimateRetreatingPlayerMon
 	ld a, [wWhichPokemon]
 	ld [wPlayerMonNumber], a
@@ -2852,7 +2852,7 @@ AnyMoveToSelect:
 	ld hl, NoMovesLeftText
 	rst _PrintText
 	ld c, 60
-	call DelayFrames
+	rst _DelayFrames
 	xor a
 	ret
 
@@ -3212,7 +3212,7 @@ LinkBattleExchangeData:
 	callfar PrintWaitingText
 .syncLoop1
 	call Serial_ExchangeNybble
-	call DelayFrame
+	rst _DelayFrame
 	ld a, [wSerialExchangeNybbleReceiveData]
 	inc a
 	jr z, .syncLoop1
@@ -3225,7 +3225,7 @@ ELSE
 ENDC
 	vc_patch_end
 .syncLoop2
-	call DelayFrame
+	rst _DelayFrame
 	call Serial_ExchangeNybble
 	dec b
 	jr nz, .syncLoop2
@@ -3238,7 +3238,7 @@ ELSE
 ENDC
 	vc_patch_end
 .syncLoop3
-	call DelayFrame
+	rst _DelayFrame
 	call Serial_SendZeroByte
 	dec b
 	jr nz, .syncLoop3
@@ -3357,7 +3357,7 @@ playPlayerMoveAnimation:
 	jr MirrorMoveCheck
 playerCheckIfFlyOrChargeEffect:
 	ld c, 30
-	call DelayFrames
+	rst _DelayFrames
 	ld a, [wPlayerMoveEffect]
 	cp FLY_EFFECT
 	jr z, .playAnim
@@ -5857,7 +5857,7 @@ playEnemyMoveAnimation:
 EnemyCheckIfFlyOrChargeEffect:
 	call SwapPlayerAndEnemyLevels
 	ld c, 30
-	call DelayFrames
+	rst _DelayFrames
 	ld a, [wEnemyMoveEffect]
 	cp FLY_EFFECT
 	jr z, .playAnim
@@ -6436,7 +6436,7 @@ DoBattleTransitionAndInitBattleVariables:
 	ld [wUpdateSpritesEnabled], a
 	call ClearScreen
 .next
-	call DelayFrame
+	rst _DelayFrame
 	predef BattleTransition
 	callfar LoadHudAndHpBarAndStatusTilePatterns
 	ld a, $1
@@ -7129,7 +7129,7 @@ AnimateSendingOutMon:
 	lb bc, 3, 3
 	predef CopyDownscaledMonTiles
 	ld c, 4
-	call DelayFrames
+	rst _DelayFrames
 	ld bc, -(SCREEN_WIDTH * 2 + 1)
 	add hl, bc
 	xor a
@@ -7137,7 +7137,7 @@ AnimateSendingOutMon:
 	lb bc, 5, 5
 	predef CopyDownscaledMonTiles
 	ld c, 5
-	call DelayFrames
+	rst _DelayFrames
 	ld bc, -(SCREEN_WIDTH * 2 + 1)
 	jr .next
 .notInBattle

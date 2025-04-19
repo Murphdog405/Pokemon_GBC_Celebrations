@@ -39,9 +39,9 @@ EnterMap::
 	ld [wJoyIgnore], a
 
 OverworldLoop::
-	call DelayFrame
+	rst _DelayFrame
 OverworldLoopLessDelay::
-	call DelayFrame
+	rst _DelayFrame
 	call LoadGBPal
 	ld a, [wd736]
 	bit 6, a ; jumping down a ledge?
@@ -384,7 +384,7 @@ OverworldLoopLessDelay::
 	jr nz, .allPokemonFainted
 .noFaintCheck
 	ld c, 10
-	call DelayFrames
+	rst _DelayFrames
 	jp EnterMap
 .allPokemonFainted
 	ld a, $ff
@@ -2480,7 +2480,7 @@ ForceBikeOrSurf::
 CheckForUserInterruption::
 ; Return carry if Up+Select+B, Start or A are pressed in c frames.
 ; Used only in the intro and title screen.
-	call DelayFrame
+	rst _DelayFrame
 
 	push bc
 	call JoypadLowSensitivity
