@@ -41,6 +41,18 @@ Bankswitch::
 	ldh a, [hColorHackTmp] ; [hColorHackTmps]
 	ret
 
+
+;; Code moved from home/header
+_LoadMapVramAndColors:
+	ldh a, [hLoadedROMBank]
+	push af
+	ld a, BANK(LoadMapVramAndColors)
+	ld [MBC1RomBank], a
+	call LoadMapVramAndColors
+	pop af
+	ld [MBC1RomBank], a
+	ret
+
 SetRomBank::
 	ldh [hLoadedROMBank], a
 	ld [MBC1RomBank], a

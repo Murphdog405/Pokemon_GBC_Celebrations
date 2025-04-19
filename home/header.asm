@@ -1,13 +1,5 @@
 SECTION "rst0", ROM0[$0000]
-_LoadMapVramAndColors:
-	ldh a, [hLoadedROMBank]
-	push af
-	ld a, BANK(LoadMapVramAndColors)
-	ld [MBC1RomBank], a
-	call LoadMapVramAndColors
-	pop af
-	ld [MBC1RomBank], a
-	ret
+
 
 ;SECTION "rst8", ROM0[$0008]
 
