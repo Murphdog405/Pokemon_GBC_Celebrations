@@ -1,5 +1,10 @@
 SECTION "rst0", ROM0[$0000]
+_CopyData::
+	jp CopyData
 
+RepelWoreOffText::
+	text_far _RepelWoreOffText
+	text_end
 
 ;SECTION "rst8", ROM0[$0008]
 

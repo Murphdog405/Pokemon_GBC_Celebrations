@@ -1239,7 +1239,7 @@ SlideDownFaintedMonPic:
 	push hl
 	push de
 	ld bc, $7
-	call CopyData
+	rst _CopyData
 	pop de
 	pop hl
 	ld bc, -SCREEN_WIDTH
@@ -1698,18 +1698,18 @@ LoadBattleMonFromParty:
 	call AddNTimes
 	ld de, wBattleMonSpecies
 	ld bc, wBattleMonDVs - wBattleMonSpecies
-	call CopyData
+	rst _CopyData
 	ld bc, wPartyMon1DVs - wPartyMon1OTID
 	add hl, bc
 	ld de, wBattleMonDVs
 	ld bc, wPartyMon1PP - wPartyMon1DVs
-	call CopyData
+	rst _CopyData
 	ld de, wBattleMonPP
 	ld bc, NUM_MOVES
-	call CopyData
+	rst _CopyData
 	ld de, wBattleMonLevel
 	ld bc, wBattleMonPP - wBattleMonLevel
-	call CopyData
+	rst _CopyData
 	ld a, [wBattleMonSpecies2]
 	ld [wd0b5], a
 	call GetMonHeader
@@ -1718,11 +1718,11 @@ LoadBattleMonFromParty:
 	call SkipFixedLengthTextEntries
 	ld de, wBattleMonNick
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	ld hl, wBattleMonLevel
 	ld de, wPlayerMonUnmodifiedLevel ; block of memory used for unmodified stats
 	ld bc, 1 + NUM_STATS * 2
-	call CopyData
+	rst _CopyData
 	call ApplyBurnAndParalysisPenaltiesToPlayer
 	call ApplyBadgeStatBoosts
 	ld a, $7 ; default stat modifier
@@ -1742,18 +1742,18 @@ LoadEnemyMonFromParty:
 	call AddNTimes
 	ld de, wEnemyMonSpecies
 	ld bc, wEnemyMonDVs - wEnemyMonSpecies
-	call CopyData
+	rst _CopyData
 	ld bc, wEnemyMon1DVs - wEnemyMon1OTID
 	add hl, bc
 	ld de, wEnemyMonDVs
 	ld bc, wEnemyMon1PP - wEnemyMon1DVs
-	call CopyData
+	rst _CopyData
 	ld de, wEnemyMonPP
 	ld bc, NUM_MOVES
-	call CopyData
+	rst _CopyData
 	ld de, wEnemyMonLevel
 	ld bc, wEnemyMonPP - wEnemyMonLevel
-	call CopyData
+	rst _CopyData
 	ld a, [wEnemyMonSpecies]
 	ld [wd0b5], a
 	call GetMonHeader
@@ -1762,11 +1762,11 @@ LoadEnemyMonFromParty:
 	call SkipFixedLengthTextEntries
 	ld de, wEnemyMonNick
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	ld hl, wEnemyMonLevel
 	ld de, wEnemyMonUnmodifiedLevel ; block of memory used for unmodified stats
 	ld bc, 1 + NUM_STATS * 2
-	call CopyData
+	rst _CopyData
 	call ApplyBurnAndParalysisPenaltiesToEnemy
 	ld hl, wMonHBaseStats
 	ld de, wEnemyMonBaseStats
@@ -1901,11 +1901,11 @@ ENDC
 	ld hl, wBattleMonSpecies
 	ld de, wLoadedMon
 	ld bc, wBattleMonDVs - wBattleMonSpecies
-	call CopyData
+	rst _CopyData
 	ld hl, wBattleMonLevel
 	ld de, wLoadedMonLevel
 	ld bc, wBattleMonPP - wBattleMonLevel
-	call CopyData
+	rst _CopyData
 	hlcoord 14, 8
 	push hl
 	inc hl
@@ -2131,11 +2131,11 @@ DisplayBattleMenu::
 	ld hl, wPlayerName
 	ld de, wLinkEnemyTrainerName
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	ld hl, .oldManName
 	ld de, wPlayerName
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 ; the following simulates the keystrokes by drawing menus on screen
 	hlcoord 9, 14
 	ld [hl], "▶"
@@ -2570,7 +2570,7 @@ MoveSelectionMenu:
 .loadmoves
 	ld de, wMoves
 	ld bc, NUM_MOVES
-	call CopyData
+	rst _CopyData
 	callfar FormatMovesString
 	ret
 
@@ -6350,7 +6350,7 @@ LoadEnemyMonData:
 	ld bc, wEnemyMon2 - wEnemyMon1
 	call AddNTimes
 	ld bc, NUM_MOVES
-	call CopyData
+	rst _CopyData
 	jr .loadMovePPs
 .copyStandardMoves
 ; for a wild mon, first copy default moves from the mon header
@@ -6397,7 +6397,7 @@ LoadEnemyMonData:
 	ld hl, wcd6d
 	ld de, wEnemyMonNick
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	ld a, [wEnemyMonSpecies2]
 	ld [wd11e], a
 	predef IndexToPokedex
@@ -6413,7 +6413,7 @@ LoadEnemyMonData:
 	ld hl, wEnemyMonLevel
 	ld de, wEnemyMonUnmodifiedLevel
 	ld bc, 1 + NUM_STATS * 2
-	call CopyData
+	rst _CopyData
 	ld a, $7 ; default stat mod
 	ld b, NUM_STAT_MODS ; number of stat mods
 	ld hl, wEnemyMonStatMods
@@ -7486,7 +7486,7 @@ LoadGhostData::
 	ld hl, wcd6d
 	ld de, wEnemyMonNick  ; set name to "GHOST"
 	ld bc, NAME_LENGTH
-	call CopyData
+	rst _CopyData
 	; fall through
 LoadGhostSprite:
 	ld hl, wMonHSpriteDim

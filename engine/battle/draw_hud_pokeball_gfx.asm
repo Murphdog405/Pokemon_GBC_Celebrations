@@ -125,7 +125,7 @@ PlacePlayerHUDTiles:
 PlayerHUDUpdateDone:
 	ld de, wHUDGraphicsTiles
 	ld bc, $3
-	call CopyData
+	rst _CopyData
 	hlcoord 18, 10
 	ld de, -1
 	jr PlaceHUDTiles
@@ -140,7 +140,7 @@ PlaceEnemyHUDTiles:
 	ld hl, EnemyBattleHUDGraphicsTiles
 	ld de, wHUDGraphicsTiles
 	ld bc, $3
-	call CopyData
+	rst _CopyData
 	hlcoord 1, 2
 IF GEN_2_GRAPHICS
 	jp EnemyHUDHAX

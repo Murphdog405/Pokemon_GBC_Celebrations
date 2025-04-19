@@ -196,7 +196,7 @@ Evolution_PartyMonLoop: ; loop over party mons
 	ld [hl], a
 	dec hl
 	pop bc
-	call CopyData
+	rst _CopyData
 	ld a, [wd0b5]
 	ld [wd11e], a
 	xor a
