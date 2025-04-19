@@ -520,7 +520,7 @@ GameCornerPosterText:
 	rst _PrintText
 	call WaitForSoundToFinish
 	ld a, SFX_GO_INSIDE
-	call PlaySound
+	rst _PlaySound
 	call WaitForSoundToFinish
 	SetEvent EVENT_FOUND_ROCKET_HIDEOUT
 	ld a, $43
@@ -533,7 +533,7 @@ GameCornerPosterText:
 	text_far _GameCornerPosterSwitchBehindPosterText
 	text_asm
 	ld a, SFX_SWITCH
-	call PlaySound
+	rst _PlaySound
 	call WaitForSoundToFinish
 	rst TextScriptEnd
 

@@ -78,10 +78,10 @@ CinnabarIslandDoorIsLockedText:
 	call RemoveItemFromInventory
 	SetEvent EVENT_USED_SECRET_KEY
    	ld a, SFX_WITHDRAW_DEPOSIT
-    	call PlaySound
+    	rst _PlaySound
     	call WaitForSoundToFinish
     	ld a, SFX_59
-    	call PlaySound
+    	rst _PlaySound
     	call WaitForSoundToFinish
 	ld hl, UnlockedDoorText
 	rst _PrintText

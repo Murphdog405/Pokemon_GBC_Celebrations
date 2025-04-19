@@ -202,9 +202,9 @@ DisplayPlayerBlackedOutText::
 	ld [wd732], a
 	jp HoldTextDisplayOpen
 
-PlayerBlackedOutText::
-	text_far _PlayerBlackedOutText
-	text_end
+;PlayerBlackedOutText::
+;	text_far _PlayerBlackedOutText
+;	text_end
 
 DisplayRepelWoreOffText::
 	ld hl, RepelWoreOffText

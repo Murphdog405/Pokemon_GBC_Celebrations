@@ -147,7 +147,7 @@ SilphCo7FDefaultScript:
 	ld [wPlayerMovingDirection], a
 	ld a, SFX_STOP_ALL_MUSIC
 ;	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	ld c, 0 ; BANK(Music_MeetRival)
 	ld a, MUSIC_MEET_RIVAL
 	call PlayMusic
@@ -236,7 +236,7 @@ SilphCo7FRivalAfterBattleScript:
 	call DisplayTextID
 	ld a, SFX_STOP_ALL_MUSIC
 ;	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	farcall Music_RivalAlternateStart
 	ld de, .RivalWalkAroundPlayerMovement
 	ld a, [wSavedCoordIndex]

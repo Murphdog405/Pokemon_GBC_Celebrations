@@ -6,7 +6,13 @@ RepelWoreOffText::
 	text_far _RepelWoreOffText
 	text_end
 
-;SECTION "rst8", ROM0[$0008]
+SECTION "rst8", ROM0[$0008]
+_PlaySound::
+	jp PlaySound
+
+PlayerBlackedOutText::
+	text_far _PlayerBlackedOutText
+	text_end
 
 SECTION "rst10", ROM0[$0010]
 _DelayFrame::
@@ -46,6 +52,7 @@ PokemartGreetingText::
 SECTION "rst30", ROM0[$0030]
 _Predef::
 	jp Predef
+
 ; PureRGBnote: MOVED: 5 extra bytes of space left here, may as well move something here that puts the space to some use
 PokeCenterSignText::
 	text_far _PokeCenterSignText

@@ -1343,7 +1343,7 @@ ItemUseMedicine:
 	ld bc, 10
 	rst _CopyData ; copy the stat's name to wStringBuffer
 	ld a, SFX_HEAL_AILMENT
-	call PlaySound
+	rst _PlaySound
 	ld hl, VitaminStatRoseText
 	rst _PrintText
 	jp RemoveUsedItem
@@ -1758,7 +1758,7 @@ ItemUsePokeFlute:
 	call WaitForSoundToFinish ; wait for sound to end
 
 	ld a, SFX_POKEFLUTE_IN_BATTLE
-	call PlaySound
+	rst _PlaySound
 	call WaitForSoundToFinish
 ;	farcall Music_PokeFluteInBattle ; play in-battle pokeflute music
 ;.musicWaitLoop ; wait for music to finish playing
@@ -1825,10 +1825,10 @@ PlayedFluteHadEffectText:
 	jr nz, .done
 ; play out-of-battle pokeflute music
 	ld a, SFX_STOP_ALL_MUSIC
-	call PlaySound
+	rst _PlaySound
 	ld a, SFX_POKEFLUTE
 	ld c, 0 ; BANK(SFX_Pokeflute)
-	call PlaySound
+	rst _PlaySound
 ;.musicWaitLoop ; wait for music to finish playing
 ;	ld a, [wChannelSoundIDs + CHAN3]
 ;	cp SFX_POKEFLUTE
@@ -1952,7 +1952,7 @@ FishingInit:
 	ld hl, ItemUseText00
 	rst _PrintText
 	ld a, SFX_HEAL_AILMENT
-	call PlaySound
+	rst _PlaySound
 	ld c, 80
 	rst _DelayFrames
 	and a
@@ -2099,7 +2099,7 @@ ItemUsePPRestore:
 	rst _CopyData ; copy party data to in-battle data
 .skipUpdatingInBattleData
 	ld a, SFX_HEAL_AILMENT
-	call PlaySound
+	rst _PlaySound
 	ld hl, PPRestoredText
 	rst _PrintText
 	jr .done
@@ -2330,7 +2330,7 @@ PrintItemUseTextAndRemoveItem:
 	ld hl, ItemUseText00
 	rst _PrintText
 	ld a, SFX_HEAL_AILMENT
-	call PlaySound
+	rst _PlaySound
 	call WaitForTextScrollButtonPress ; wait for button press
 
 RemoveUsedItem:

@@ -39,7 +39,7 @@ SSAnneCaptainsRoomCaptainText:
 	pop de
 	pop hl
 	ld a, SFX_CUT
-	call PlaySound
+	rst _PlaySound
 	ld a, S_S_TICKET
 	ldh [hItemToRemoveID], a
 	farcall RemoveItemByID
@@ -71,7 +71,7 @@ SSAnneCaptainsRoomRubCaptainsBackText:
 ;	jr nz, .not_audio_engine_3
 ;	ld a, SFX_STOP_ALL_MUSIC
 ;	ld [wNewSoundID], a
-;	call PlaySound
+;	rst _PlaySound
 ;	ld a, 0 ; BANK(Music_PkmnHealed)
 ;	ld [wAudioROMBank], a
 ;.not_audio_engine_3

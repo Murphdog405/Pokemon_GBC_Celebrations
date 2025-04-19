@@ -3,8 +3,8 @@ ROM0
 	"NULL"
 	org $0000
 	"rst0"
-;	org $0008
-;	"rst8"
+	org $0008
+	"rst8"
 	org $0010
 	"rst10"
 	org $0018
