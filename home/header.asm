@@ -11,20 +11,31 @@ _LoadMapVramAndColors:
 
 ;SECTION "rst8", ROM0[$0008]
 
-; HAX: rst10 is used for the vblank hook
 SECTION "rst10", ROM0[$0010]
-	
+_DelayFrame::
+	jp DelayFrame
+
+PokemonFaintedText::
+	text_far _PokemonFaintedText
+	text_end
 
 ; HAX: rst18 can be used for "Bankswitch"
 SECTION "rst18", ROM0[$0018]
 _Bankswitch::
 	jp Bankswitch
 
+; PureRGBnote: MOVED: 5 extra bytes of space left here, may as well move something here that puts the space to some use
+MartSignText::
+	text_far _MartSignText
+	text_end
+
 SECTION "rst20", ROM0[$0020]
-SetRomBank::
-	ldh [hLoadedROMBank], a
-	ld [MBC1RomBank], a
-	ret
+_DelayFrames::
+	jp DelayFrames
+
+TextIDErrorText:: ; "[hSpriteIndexOrTextID] ERROR."
+	text_far _TextIDErrorText
+	text_end
 
 SECTION "rst28", ROM0[$0028]
 _PrintText::

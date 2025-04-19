@@ -40,3 +40,8 @@ Bankswitch::
 	ld [MBC1RomBank], a
 	ldh a, [hColorHackTmp] ; [hColorHackTmps]
 	ret
+
+SetRomBank::
+	ldh [hLoadedROMBank], a
+	ld [MBC1RomBank], a
+	ret

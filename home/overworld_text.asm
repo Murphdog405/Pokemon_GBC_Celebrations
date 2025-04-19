@@ -38,9 +38,9 @@ BoulderText::
 .done 
     rst TextScriptEnd 
 
-MartSignText::
-	text_far _MartSignText
-	text_end
+;MartSignText::
+;	text_far _MartSignText
+;	text_end
 
 PickUpItemText::
 	text_asm

@@ -190,9 +190,9 @@ DisplayPokemonFaintedText::
 	rst _PrintText
 	jp AfterDisplayingTextID
 
-PokemonFaintedText::
-	text_far _PokemonFaintedText
-	text_end
+;PokemonFaintedText::
+;	text_far _PokemonFaintedText
+;	text_end
 
 DisplayPlayerBlackedOutText::
 	ld hl, PlayerBlackedOutText
