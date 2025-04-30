@@ -36,8 +36,12 @@ SECTION "NPC Sprites 2", ROMX
 
 RedBikeSprite::          INCBIN "gfx/sprites/red_bike.2bpp"
 RedSprite::              INCBIN "gfx/sprites/red.2bpp"
+RedRunSprite::           INCBIN "gfx/sprites/red_run.2bpp"
+RedSurfSprite::          INCBIN "gfx/sprites/red_surf.2bpp"
 GreenBikeSprite::        INCBIN "gfx/sprites/green_bike.2bpp"
 GreenSprite::            INCBIN "gfx/sprites/green.2bpp"
+GreenRunSprite::         INCBIN "gfx/sprites/green_run.2bpp"
+GreenSurfSprite::        INCBIN "gfx/sprites/green_surf.2bpp"
 BlueSprite::             INCBIN "gfx/sprites/blue.2bpp"
 OakSprite::              INCBIN "gfx/sprites/oak.2bpp"
 YoungsterSprite::        INCBIN "gfx/sprites/youngster.2bpp"
@@ -53,7 +57,7 @@ GirlSprite::             INCBIN "gfx/sprites/girl.2bpp"
 HikerSprite::            INCBIN "gfx/sprites/hiker.2bpp"
 BeautySprite::           INCBIN "gfx/sprites/beauty.2bpp"
 GentlemanSprite::        INCBIN "gfx/sprites/gentleman.2bpp"
-DaisySprite::            INCBIN "gfx/sprites/daisy.2bpp"
+;DaisySprite::            INCBIN "gfx/sprites/daisy.2bpp" ; moved for space
 BikerSprite::            INCBIN "gfx/sprites/biker.2bpp"
 SailorSprite::           INCBIN "gfx/sprites/sailor.2bpp"
 CookSprite::             INCBIN "gfx/sprites/cook.2bpp"
@@ -66,13 +70,13 @@ ChannelerSprite::        INCBIN "gfx/sprites/channeler.2bpp"
 SilphWorkerFSprite::     INCBIN "gfx/sprites/silph_worker_f.2bpp"
 MiddleAgedWomanSprite::  INCBIN "gfx/sprites/middle_aged_woman.2bpp"
 BrunetteGirlSprite::     INCBIN "gfx/sprites/brunette_girl.2bpp"
-LanceSprite::            INCBIN "gfx/sprites/lance.2bpp"
-MomSprite::              INCBIN "gfx/sprites/mom.2bpp"
+;LanceSprite::            INCBIN "gfx/sprites/lance.2bpp" ; moved for space
+;MomSprite::              INCBIN "gfx/sprites/mom.2bpp" ; moved for space
 ;BaldingGuySprite::      INCBIN "gfx/sprites/balding_guy.2bpp" ;; moved for space
 ; LittleBoySprite::      INCBIN "gfx/sprites/little_boy.2bpp" ;; moved for space
-GameboyKidSprite::       INCBIN "gfx/sprites/gameboy_kid.2bpp"
+;GameboyKidSprite::       INCBIN "gfx/sprites/gameboy_kid.2bpp" ;; moved for space
 FairySprite::            INCBIN "gfx/sprites/fairy.2bpp"
-AgathaSprite::           INCBIN "gfx/sprites/agatha.2bpp"
+;AgathaSprite::           INCBIN "gfx/sprites/agatha.2bpp" ;; moved for space
 BrunoSprite::            INCBIN "gfx/sprites/bruno.2bpp"
 LoreleiSprite::          INCBIN "gfx/sprites/lorelei.2bpp"
 SeelSprite::             INCBIN "gfx/sprites/seel.2bpp"
@@ -126,3 +130,12 @@ PidgeySprite::           INCBIN "gfx/sprites/mons/pidgey.2bpp"
 PikachuSprite::          INCBIN "gfx/sprites/mons/pikachu.2bpp"
 Seel2Sprite::            INCBIN "gfx/sprites/mons/seel.2bpp"
 ZapdosSprite::           INCBIN "gfx/sprites/mons/zapdos.2bpp"
+
+
+SECTION "NPC Sprites 5", ROMX
+
+DaisySprite::            INCBIN "gfx/sprites/daisy.2bpp"
+LanceSprite::            INCBIN "gfx/sprites/lance.2bpp"
+MomSprite::              INCBIN "gfx/sprites/mom.2bpp"
+GameboyKidSprite::       INCBIN "gfx/sprites/gameboy_kid.2bpp"
+AgathaSprite::           INCBIN "gfx/sprites/agatha.2bpp"
