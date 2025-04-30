@@ -1152,5 +1152,10 @@ ENDC
 
 SECTION "Menu Prompt Graphics", ROMX
 
+IF GEN_2_GRAPHICS
+ExtraMenuBorderConnectors:: INCBIN "gfx/gs/extra_menu_border_connectors_gen2.1bpp"
+FromToChangeBoxPrompt:: INCBIN "gfx/gs/from_to_change_box_prompt_gen2.1bpp"
+ELSE
 ExtraMenuBorderConnectors:: INCBIN "gfx/font/extra_menu_border_connectors.1bpp"
 FromToChangeBoxPrompt:: INCBIN "gfx/font/from_to_change_box_prompt.1bpp"
+ENDC
