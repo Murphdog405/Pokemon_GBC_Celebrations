@@ -417,3 +417,4 @@ SECTION "Move Descriptions", ROMX
 
 INCLUDE "engine/pokemon/move_descriptions.asm"
 INCLUDE "engine/menus/multi_choice_menu.asm"
+INCLUDE "engine/menus/change_box_menu.asm"
