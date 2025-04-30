@@ -43,7 +43,10 @@ GameFreakLogoGraphics: INCBIN "gfx/title/gamefreak_inc.2bpp"
 GameFreakLogoGraphicsEnd:
 ENDC
 
-IF GEN_2_GRAPHICS
+IF GEN_2_GRAPHICS || DEF(_SNOW)
+TextBoxGraphics:: INCBIN "gfx/gs/text_box_snow_gen2.2bpp"
+TextBoxGraphicsEnd::
+ELIF GEN_2_GRAPHICS
 TextBoxGraphics:: INCBIN "gfx/gs/text_box.2bpp"
 TextBoxGraphicsEnd::
 ELIF SNOW
