@@ -406,14 +406,13 @@ MoveAnimation:
 	push bc
 	push af
 	call WaitForSoundToFinish
-	MoveAnimationContent:
+MoveAnimationContent:
 ;;;;;;;;;; PureRGBnote: ADDED: code for setting moves as seen for the movedex
 	ld a, [wBattleFunctionalFlags]
 	bit 0, a
 	call nz, SetMoveDexSeen
 	call SetAnimationPalette
 ;;;;;;;;;;
-	call SetAnimationPalette
 	ld a, [wAnimationID]
 	and a
 	jr z, .animationFinished

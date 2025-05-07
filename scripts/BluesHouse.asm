@@ -79,10 +79,6 @@ MapHelpText:
 	text_far _MapHelpText
 	text_end
 
-;BluesHouseDaisyBagFullText:
-;	text_far _BluesHouseDaisyBagFullText
-;	text_end
-
 BluesHouseDaisyUseMapText:
 	text_far _BluesHouseDaisyUseMapText
 	text_end

@@ -1975,8 +1975,8 @@ DrawEnemyHUDAndHPBar:
 	and a
 	jr z, .notOwned
 	coord hl, 1, 1 ; horizontal/vertical
-	ld [hl], $E9 ; replace this with your Poké Ball icon or other character
-	.notOwned
+	ld [hl], $DF ; replace this with your Poké Ball icon or other character
+.notOwned
 	pop hl
 	.notWildBattle ;dannyE fix
 	;============================== end of new code

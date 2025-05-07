@@ -158,8 +158,7 @@
 	charmap "'t",        $be
 	charmap "'v",        $bf
 
-	charmap "<LVL>",     $dc
-	charmap "%",         $dd
+	charmap "<LVL>",     $dd
 	charmap "&",         $de
 	charmap "'",         $e0
 	charmap "<PK>",      $e1
@@ -173,9 +172,9 @@
 	charmap "!",         $e7
 	charmap ".",         $e8
 
-	charmap "ァ",         $e9 ; katakana small a, unused
-	charmap "+",         $ea ; plus sign
-	charmap "→",         $eb ; arrow sign
+	charmap "→",         $e9 ; PureRGBnote: ADDED: right facing arrow character
+	charmap "+",         $ea ; PureRGBnote: ADDED: plus sign
+	charmap "%",         $eb ; PureRGBnote: ADDED: percent sign
 
 	charmap "▷",         $ec
 	charmap "▶",         $ed
