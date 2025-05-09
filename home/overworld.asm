@@ -781,6 +781,8 @@ CheckIfInDigMap::
 	call CheckIfInOutsideMap
 	ret z
 	cp FOREST
+	ret z
+	cp SAFARI
 	ret
 
 CheckIfInOutsideMap::
