@@ -783,6 +783,9 @@ SpritePaletteAssignments: ; Characters on the overworld
 	; 0x48: SPRITE_LYING_OLD_MAN
 	db SPR_PAL_BROWN
 
+	; 0x49: SPRITE_POKEDEX (OAKS LAB)
+	db SPR_PAL_ORANGE
+
 AnimationTileset1Palettes:
 	INCBIN "color/data/animtileset1palettes.bin"
 
