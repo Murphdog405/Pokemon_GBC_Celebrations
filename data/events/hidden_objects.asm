@@ -84,6 +84,7 @@ HiddenObjectMaps:
 	db VERMILION_CITY
 	db CERULEAN_CITY
 	db ROUTE_4
+	db DAYCARE
 	db BLUES_HOUSE_2F
 	db -1 ; end
 
@@ -174,6 +175,7 @@ HiddenObjectPointers:
 	dw VermilionCityHiddenObjects
 	dw CeruleanCityHiddenObjects
 	dw Route4HiddenObjects
+	dw DaycareHiddenObjects
 	dw BluesHouse2FHiddenObjects
 
 MACRO hidden_object
@@ -667,6 +669,10 @@ CeruleanCityHiddenObjects:
 
 Route4HiddenObjects:
 	hidden_object 40,  3, GREAT_BALL, HiddenItems
+	db -1 ; end
+
+DaycareHiddenObjects:
+	hidden_object 4,  0, SPRITE_FACING_UP, OpenPokemonCenterPC
 	db -1 ; end
 
 BluesHouse2FHiddenObjects:
