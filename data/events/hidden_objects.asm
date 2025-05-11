@@ -1,6 +1,6 @@
 HiddenObjectMaps:
 	db REDS_HOUSE_2F
-	db BLUES_HOUSE
+	db BLUES_HOUSE_1F
 	db OAKS_LAB
 	db VIRIDIAN_POKECENTER
 	db VIRIDIAN_MART
@@ -84,12 +84,13 @@ HiddenObjectMaps:
 	db VERMILION_CITY
 	db CERULEAN_CITY
 	db ROUTE_4
+	db BLUES_HOUSE_2F
 	db -1 ; end
 
 HiddenObjectPointers:
 ; each of these pointers is for the corresponding map in HiddenObjectMaps
 	dw RedsHouse2FHiddenObjects
-	dw BluesHouseHiddenObjects
+	dw BluesHouse1FHiddenObjects
 	dw OaksLabHiddenObjects
 	dw ViridianPokecenterHiddenObjects
 	dw ViridianMartHiddenObjects
@@ -173,6 +174,7 @@ HiddenObjectPointers:
 	dw VermilionCityHiddenObjects
 	dw CeruleanCityHiddenObjects
 	dw Route4HiddenObjects
+	dw BluesHouse2FHiddenObjects
 
 MACRO hidden_object
 	db \2 ; y coord
@@ -208,10 +210,10 @@ RedsHouse2FHiddenObjects:
 	hidden_object  3,  5, ANY_FACING, PrintRedSNESText
 	db -1 ; end
 
-BluesHouseHiddenObjects:
+BluesHouse1FHiddenObjects:
 	hidden_object  0,  1, SPRITE_FACING_UP, PrintBookcaseText
 	hidden_object  1,  1, SPRITE_FACING_UP, PrintBookcaseText
-	hidden_object  7,  1, SPRITE_FACING_UP, PrintBookcaseText
+;	hidden_object  7,  1, SPRITE_FACING_UP, PrintBookcaseText
 	db -1 ; end
 
 OaksLabHiddenObjects:
@@ -665,4 +667,9 @@ CeruleanCityHiddenObjects:
 
 Route4HiddenObjects:
 	hidden_object 40,  3, GREAT_BALL, HiddenItems
+	db -1 ; end
+
+BluesHouse2FHiddenObjects:
+	hidden_object  0,  1, SPRITE_FACING_UP, OpenBluesPC
+	hidden_object  3,  5, ANY_FACING, PrintBlueSNESText
 	db -1 ; end
