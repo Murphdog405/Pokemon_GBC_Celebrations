@@ -2303,8 +2303,6 @@ ItemUseTMHM:
 	ld [wcf91], a
 	pop af
 	ld [wWhichPokemon], a
-	ld a, b
-	and a
 	ret
 
 BootedUpTMText:
