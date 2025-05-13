@@ -37,8 +37,8 @@ ROM0
 	"Home"
 ;	org $1665   ;; removed per Dannye
 	"LoadMonFrontSprite"
-	org $1dd9
-	"JpPoint"
+;	org $1dd9   ;; removed per Dannye
+	"JpPoint" 
 ROMX $1
 	"bank1"
 ;	 org $425b
