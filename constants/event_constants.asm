@@ -6,7 +6,8 @@
 	const EVENT_FIRST_POKECENTER
 	const_skip 1
 	const EVENT_HALL_OF_FAME_DEX_RATING
-	const_skip 2
+	const_skip 1
+	const EVENT_INFORMED_ABOUT_OPTIONS
 	const EVENT_PALLET_AFTER_GETTING_POKEBALLS
 	const_skip
 	const EVENT_SAW_GOT_ON_BIKE_TEXT
