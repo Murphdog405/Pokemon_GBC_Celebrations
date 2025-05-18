@@ -11,6 +11,9 @@ It builds the following ROMs:
 - dmgapee0.e68.patch
 
 Some FEATURES:
+- 2 BRANCHES: ONE WITH RBY AUDIO AND 60 BAG SPACE, AND ONE WITH RBY/GSC AUDIO AND 20 BAG SPACE AND PORT PC
+
+
 - PLAY IN FULL COLOR
 - Play with Gen 1 or Gen 2 Sprites.... Change in Includes.asm from 0 to 1
 - Play with Gen 1 or Gen 2 Audio... Change in Includes.asm from 0 to 1
@@ -41,7 +44,7 @@ Some FEATURES:
 - Pikachu and Raichu can learn SURF through HM, just like in Yellow version
 -  PROF. OAK gives you 5 POKÉBALLS when you receive the POKÉDEX.
 - TM names in BAG and MART (TM24 it says TM24 THNDRBLT)
-- 20 item bag space still (Port PC)
+- 60 item bag space/ CrysAudio has 20 item bag space but (Port PC)
 - Auto HM use (eg: surf, just touch the water and say YES)
 - Deletable HM's - Sort Items in BAG 
 - OAK Battle post game - Message when PC is full
