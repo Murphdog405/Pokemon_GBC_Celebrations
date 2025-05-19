@@ -89,10 +89,10 @@ Route22FirstRivalBattleScript:
 	and a
 	jr z, .walking
 	ld a, SFX_STOP_ALL_MUSIC
-;	ld [wNewSoundID], a
-	rst _PlaySound
+	ld [wNewSoundID], a
+	call PlaySound
 .walking
-	ld c, 0 ; BANK(Music_MeetRival)
+	ld c, BANK(Music_MeetRival)
 	ld a, MUSIC_MEET_RIVAL
 	call PlayMusic
 	ld a, ROUTE22_RIVAL1
@@ -168,8 +168,8 @@ Route22Rival1AfterBattleScript:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, SFX_STOP_ALL_MUSIC
-;	ld [wNewSoundID], a
-	rst _PlaySound
+	ld [wNewSoundID], a
+	call PlaySound
 	farcall Music_RivalAlternateStart
 	ld a, [wSavedCoordIndex]
 	cp 1 ; index of second, lower entry in Route22DefaultScript.Route22RivalBattleCoords
@@ -242,12 +242,12 @@ Route22SecondRivalBattleScript:
 	and a
 	jr z, .walking
 	ld a, SFX_STOP_ALL_MUSIC
-;	ld [wNewSoundID], a
-	rst _PlaySound
+	ld [wNewSoundID], a
+	call PlaySound
 .walking
 	ld a, SFX_STOP_ALL_MUSIC
-;	ld [wNewSoundID], a
-	rst _PlaySound
+	ld [wNewSoundID], a
+	call PlaySound
 	farcall Music_RivalAlternateTempo
 	ld a, ROUTE22_RIVAL2
 	ldh [hSpriteIndex], a
@@ -327,8 +327,8 @@ Route22Rival2AfterBattleScript:
 	ldh [hSpriteIndexOrTextID], a
 	call DisplayTextID
 	ld a, SFX_STOP_ALL_MUSIC
-;	ld [wNewSoundID], a
-	rst _PlaySound
+	ld [wNewSoundID], a
+	call PlaySound
 	farcall Music_RivalAlternateStartAndTempo
 	ld a, [wSavedCoordIndex]
 	cp 1 ; index of second, lower entry in Route22DefaultScript.Route22RivalBattleCoords

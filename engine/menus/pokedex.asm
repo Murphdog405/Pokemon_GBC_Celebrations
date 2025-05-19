@@ -691,7 +691,7 @@ DrawDexEntryOnScreen:
 	hlcoord 1, 1
 	call LoadFlippedFrontSpriteByMonIndex ; draw pokemon picture
 	ld a, [wcf91]
-	call PlayCry
+	call PlayCry ; play pokemon cry
 
 	pop hl
 	pop de
