@@ -60,7 +60,7 @@ PewterPokecenterJigglypuffText:
 	ld [wJigglypuffFacingDirections + 3], a
 	pop hl
 	ld c, 24
-	call DelayFrames
+	rst _DelayFrames
 	ld a, [wChannelSoundIDs]
 	ld b, a
 	ld a, [wChannelSoundIDs + CHAN2]
