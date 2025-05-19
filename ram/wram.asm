@@ -1433,7 +1433,7 @@ wTempTilesetNumTiles:: db
 ; so that it can be restored when the player is done with the pokemart NPC
 wSavedListScrollOffset:: db
 
-	ds 2
+wSum:: dw
 
 ; base coordinates of frame block
 wBaseCoordX:: db
@@ -1834,9 +1834,20 @@ wPokedexOwnedEnd::
 wPokedexSeen:: flag_array NUM_POKEMON
 wPokedexSeenEnd::
 
-wNumBagItems:: db
-; item, quantity
-wBagItems:: ds BAG_ITEM_CAPACITY * 2 + 1  
+	ds 20
+
+UNION
+	ds 22
+
+NEXTU
+
+ 
+wMovedexSeen:: flag_array NUM_ATTACKS
+wMovedexSeenEnd::
+
+ENDU
+
+;;;
 
 wPlayerMoney:: ds 3 ; BCD
 
@@ -1933,10 +1944,23 @@ ds 128
 
 NEXTU
 
-wMovedexSeen:: flag_array NUM_ATTACKS
-wMovedexSeenEnd::
+wNumBagItems:: db
+; item, quantity
+wBagItems:: ds BAG_ITEM_CAPACITY * 2 + 1 
 
-wUniQuizAnswer:: db
+
+wDifficulty::
+	; $00 = normal
+	; $01 = hard
+	ds 1
+
+wPlayerGender::
+	; $00 = male
+	; $01 = female
+	ds 1
+
+wUniQuizAnswer::db
+; 2 bytes left
 
 ENDU
 
@@ -2153,21 +2177,7 @@ wSeafoamIslandsB4FCurScript:: db
 wRoute18Gate1FCurScript:: db
 	ds 78
 wGameProgressFlagsEnd::
-
-	wDifficulty::
-		; $00 = normal
-		; $01 = hard
-			ds 1
-
-	wPlayerGender::
-		; $00 = male
-		; $01 = female
-			ds 1
-
-
-		wSum:: dw
-		; unused
-			ds 54
+	ds 56
 
 wObtainedHiddenItemsFlags:: flag_array 112
 
