@@ -46,7 +46,7 @@ VermilionDockSSAnneLeavesScript:
 	ld a, SFX_STOP_ALL_MUSIC
 	ld [wJoyIgnore], a
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	ld c, BANK(Music_Surfing)
 	ld a, MUSIC_SURFING
 	call PlayMusic

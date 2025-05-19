@@ -23,7 +23,7 @@ AnimateHealingMachine:
 	ld [wAudioFadeOutControl], a
 	ld a, SFX_STOP_ALL_MUSIC
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 .waitLoop
 	ld a, [wAudioFadeOutControl]
 	and a ; is fade-out finished?
@@ -44,13 +44,13 @@ AnimateHealingMachine:
 	jr nz, .next
 	ld a, SFX_STOP_ALL_MUSIC
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	ld a, BANK(Music_PkmnHealed)
 	ld [wAudioROMBank], a
 .next
 	ld a, MUSIC_PKMN_HEALED
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	ld d, %01110100
 	call FlashSprite8Times
 .waitLoop2

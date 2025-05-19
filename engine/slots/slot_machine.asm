@@ -695,7 +695,7 @@ SlotMachine_PayCoinsToPlayer:
 	call SlotMachine_PrintCreditCoins
 	call SlotMachine_PrintPayoutCoins
 	ld a, SFX_SLOTS_REWARD
-	call PlaySound
+	rst _PlaySound
 	ld a, [wAnimCounter]
 	dec a
 	jr nz, .skip1

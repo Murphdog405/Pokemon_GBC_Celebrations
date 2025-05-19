@@ -11,7 +11,7 @@ EvolveMon:
 	ld [wChannelSoundIDs + CHAN5], a
 	dec a ; SFX_STOP_ALL_MUSIC
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
 	ld a, SFX_TINK
@@ -69,7 +69,7 @@ EvolveMon:
 	ld [wWholeScreenPaletteMonSpecies], a
 	ld a, SFX_STOP_ALL_MUSIC
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	ld a, [wWholeScreenPaletteMonSpecies]
 	call PlayCry
 	ld c, 0

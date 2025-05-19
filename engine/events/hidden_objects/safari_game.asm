@@ -38,7 +38,7 @@ SafariZoneGameOver:
 	xor a
 	ld [wAudioFadeOutControl], a
 	dec a ; SFX_STOP_ALL_MUSIC
-	call PlaySound
+	rst _PlaySound
 	ld c, BANK(SFX_Safari_Zone_PA)
 	ld a, SFX_SAFARI_ZONE_PA
 	call PlayMusic

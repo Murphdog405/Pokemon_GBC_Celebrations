@@ -41,7 +41,7 @@ PrepareOakSpeech:
 
 OakSpeech:
 	ld a, SFX_STOP_ALL_MUSIC
-	call PlaySound
+	rst _PlaySound
 	ld a, BANK(Music_Routes2)
 	ld c, a
 	ld a, MUSIC_ROUTES2
@@ -222,7 +222,7 @@ ENDC
 	ld [wAudioFadeOutControl], a
 	ld a, SFX_STOP_ALL_MUSIC
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	pop af
 	ldh [hLoadedROMBank], a
 	ld [MBC1RomBank], a

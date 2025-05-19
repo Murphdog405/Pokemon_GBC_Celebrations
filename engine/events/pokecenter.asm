@@ -41,7 +41,7 @@ DisplayPokemonCenterDialogue_::
 	ld a, [wMapMusicSoundID]
 	ld [wLastMusicSoundID], a
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	CheckEvent EVENT_FIRST_POKECENTER
 	jr nz, .FightingFitShort
 	ld hl, PokemonFightingFitText

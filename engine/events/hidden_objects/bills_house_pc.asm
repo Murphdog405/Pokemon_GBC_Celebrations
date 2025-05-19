@@ -54,7 +54,7 @@ BillsHouseInitiatedText::
 	text_asm
 	ld a, SFX_STOP_ALL_MUSIC
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	ld c, 16
 	rst _DelayFrames
 	ld a, SFX_SWITCH

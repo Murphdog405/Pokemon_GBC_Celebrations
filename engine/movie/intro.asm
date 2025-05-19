@@ -344,7 +344,7 @@ PlayShootingStar:
 	ld [wAudioSavedROMBank], a
 	ld a, MUSIC_INTRO_BATTLE
 	ld [wNewSoundID], a
-	call PlaySound
+	rst _PlaySound
 	call IntroClearMiddleOfScreen
 	call ClearSprites
 	jp Delay3

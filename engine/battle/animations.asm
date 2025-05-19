@@ -204,7 +204,7 @@ PlayAnimation:
 	push hl
 	push de
 	call GetMoveSound
-	call PlaySound
+	rst _PlaySound
 	pop de
 	pop hl
 .skipPlayingSound
@@ -592,7 +592,7 @@ PlaySubanimation:
 	cp NO_MOVE - 1
 	jr z, .skipPlayingSound
 	call GetMoveSound
-	call PlaySound
+	rst _PlaySound
 .skipPlayingSound
 	ld hl, wShadowOAM
 	ld a, l
