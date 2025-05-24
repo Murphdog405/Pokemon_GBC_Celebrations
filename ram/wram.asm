@@ -1959,8 +1959,7 @@ wPlayerGender::
 	; $01 = female
 	ds 1
 
-wUniQuizAnswer::db
-; 2 bytes left
+; 4 bytes left
 
 ENDU
 
