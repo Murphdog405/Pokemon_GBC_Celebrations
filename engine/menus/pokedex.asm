@@ -193,12 +193,8 @@ HandlePokedexSideMenu:
 
 .choseCry
 	ld a, [wd11e]
-	push af
-	Call PlayCry
-	pop af
-	ld [wd11e], a
-;	call GetCryData
-;	rst _PlaySound
+	call GetCryData
+	rst _PlaySound
 	jp .handleMenuInput
 
 ; handles the list of pokemon on the left of the pokedex screen
