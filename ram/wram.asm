@@ -1142,9 +1142,9 @@ wExpAmountGained:: dw
 wGainBoostedExp:: db
 ENDU
 
-wGymCityName:: ds 17
+	ds 17
 
-wGymLeaderName:: ds NAME_LENGTH
+	ds 11
 
 	ds 15
 
