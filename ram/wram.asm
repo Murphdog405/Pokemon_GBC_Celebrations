@@ -1142,13 +1142,7 @@ wExpAmountGained:: dw
 wGainBoostedExp:: db
 ENDU
 
-	ds 17
-
-	ds 11
-
-	ds 15
-
-wStoredMovedexListIndex:: db
+	ds 44
 
 wListPointer:: dw
 
@@ -1842,10 +1836,12 @@ wPokedexOwnedEnd::
 wPokedexSeen:: flag_array NUM_POKEMON
 wPokedexSeenEnd::
 
-	ds 20
+wStoredMovedexListIndex:: db
+
+	ds 19
 
 UNION
-	ds 22
+	ds 22 ; Originally was 42 bytes before MovedexList and MovedexSeen
 
 NEXTU
 
