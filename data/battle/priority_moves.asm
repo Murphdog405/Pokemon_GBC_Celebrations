@@ -4,5 +4,4 @@
 PriorityMovesList:
     db COUNTER,        1
     db QUICK_ATTACK,   8
-    db TRANSFORM,      8
     db -1 ; end
