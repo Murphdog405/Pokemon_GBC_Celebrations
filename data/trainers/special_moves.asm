@@ -737,8 +737,8 @@ SpecialTrainerMoves:
     	db 1, 4, DOUBLE_EDGE
     	db 2, 1, REST
         db 2, 2, ICE_BEAM
-    	db 2, 3, THUNDERPUNCH
-    	db 2, 4, FIRE_PUNCH
+    	db 2, 3, BODY_SLAM
+    	db 2, 4, FIRE_BLAST
     	db 3, 1, RECOVER
     	db 3, 2, SURF
     	db 3, 3, THUNDER_WAVE
@@ -749,7 +749,7 @@ SpecialTrainerMoves:
     	db 4, 4, THUNDER_WAVE
     	db 5, 1, SOFTBOILED
     	db 5, 2, REFLECT
-    	db 5, 3, DREAM_EATER
+    	db 5, 3, PSYCHIC_M
     	db 5, 4, EGG_BOMB
     	db 6, 1, SOFTBOILED
     	db 6, 2, REFLECT
@@ -776,7 +776,7 @@ SpecialTrainerMoves:
     	db 4, 4, THUNDERBOLT
     	db 5, 1, SPORE
     	db 5, 2, MEGA_DRAIN
-    	db 5, 3, RAZOR_LEAF
+    	db 5, 3, SLASH
     	db 5, 4, LEECH_LIFE
     	db 6, 1, FIRE_SPIN
     	db 6, 2, FIRE_BLAST
